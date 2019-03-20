@@ -1,0 +1,63 @@
+{% extends "materiais/base.html" %}
+
+{% block title %}Detalhes do Item do Pedido{% endblock %}
+
+{% block content %}
+
+    <h1>Altera Item do Pedido {{ pedidowebitem.pedidoweb_id }}</h1>
+
+    <table class="responsive table table-responsive table-condensed table-bordered table-hover table-striped table-dark">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Descrição</th>
+                    <th style="text-align:right">Preço Unitário</th>
+                    <th style="text-align:right">Quant.</th>
+                    <th style="text-align:right">Preço Bruto</th>
+                    <th style="text-align:right">% Desconto</th>
+                    <th style="text-align:right">Valor Desconto</th>
+                    <th style="text-align:right">Preço Líquido</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>{{ pedidowebitem.sequencia }}</td>
+                    <td>{{ pedidowebitem.produto }}</td>
+                    <td style="text-align:right">{{ pedidowebitem.preco_unitario|floatformat:2 }}</td>
+                    <td style="text-align:right">{{ pedidowebitem.quantidade|floatformat:0 }}</td>
+                    <td style="text-align:right">{{ pedidowebitem.total_preco_bruto|floatformat:2 }}</td>
+                    <td style="text-align:right">{{ pedidowebitem.perc_desc|floatformat:2 }}%</td>
+                    <td style="text-align:right">{{ pedidowebitem.valor_desconto|floatformat:2 }}</td>
+                    <td style="text-align:right">{{ pedidowebitem.preco_liquido|floatformat:2 }}</td>
+                </tr>
+            </tbody>
+
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Descrição</th>
+                    <th style="text-align:right">Preço Unitário</th>
+                    <th style="text-align:right">Quant.</th>
+                    <th style="text-align:right">Preço Bruto</th>
+                    <th style="text-align:right">% Desconto</th>
+                    <th style="text-align:right">Valor Desconto</th>
+                    <th style="text-align:right">Preço Líquido</th>
+                </tr>
+            </thead>
+
+    </table>
+
+    <div class="container">
+
+        <form method="post">{% csrf_token %}
+            Preço Unitário: {{ form.preco_unitario }}
+            Quantidade: {{ form.quantidade }}
+            % Desconto: {{ form.perc_desc }} <br> <br>
+            <input type="submit" class="btn btn-outline-success" value="Atualiza">
+            <a href="{% url 'materiais:pedidoweb_detail' pedidowebitem.pedidoweb_id %}" class="btn btn-primary">Voltar</a>
+        </form>
+
+    </div>
+
+{% endblock %}

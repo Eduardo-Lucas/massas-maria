@@ -1,0 +1,118 @@
+{% extends "materiais/base.html" %}
+{% load qr_code %}
+{% load static %}
+
+
+{% block title %}
+    {% if category %}{{ categoria.nome }}{% else %}Produtos{% endif %}
+{% endblock %}
+
+{% block content %}
+
+
+<!--<div id="main" class="d-block product-list">-->
+
+<div class="container">
+    {% if produtos %}
+    <div class="card-group">
+
+        <div class="card bg-light" align="center">
+            <div class="card-body">
+                <h5 style="margin-center"><strong>Lista de Produtos</strong></h5>
+            </div>
+        </div>
+
+        <div class="card bg-light" align="center">
+            <div class="card-body">
+             <!-- Pesquisa -->
+            <form class="form-inline mt-2 mt-md-0">
+                <input class="form-control mr-sm-2" id="searchbox" name="q" type="text" value="{{ request.GET.q }}" placeholder="o que deseja encontrar?" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="tooltip" data-placement="top" title="Pesquisar" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            </div>
+        </div>
+
+        <div class="card bg-light" align="center">
+            <div class="card-body">
+            <!-- pagination -->
+            <nav aria-label="Page navigation example">
+              <ul class="pagination pagination-sm justify-content-end">
+
+                {% if object_list.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ object_list.previous_page_number }}&q={{ request.GET.q }}"><i class="fas fa-chevron-circle-left"></i> Anterior</a></li>
+                {% endif %}
+
+                <li class="page-item active">
+                    <span class="page-link">
+                            Página {{ object_list.number }} de {{ object_list.paginator.num_pages }}
+                            <span class="sr-only">(current)</span>
+                    </span>
+                </li>
+
+                {% if object_list.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ object_list.next_page_number }}&q={{ request.GET.q }}"><i class="fas fa-chevron-circle-right"></i> Próxima</a></li>
+                {% endif %}
+
+              </ul>
+            </nav>
+            <!--end of pagination-->
+            </div>
+        </div>
+
+    </div>
+    <!--end of card-group-->
+</div>
+
+<div class="container">
+        <div class="row">
+            {% for produto in produtos %}
+                <div class="col-sm-4">
+                    <div class="card border-dark mb-3" style="background-color: #eee;">
+
+                        <a href="{{ produto.get_absolute_url }}">
+                            <img src="{{ produto.image.url }}" class="card-img-top" alt="...">
+                        </a>
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {% for item in cart %}
+                                    {% if item.product == produto %}
+                                        <span class="badge badge-pill badge-warning">
+                                            <i class="fas fa-check-square"></i> adicionado
+                                        </span>
+                                    {% endif %}
+                                {% endfor %}
+                            </h5>
+
+                            <a href="{{ produto.get_absolute_url }}">
+                                <h5 class="card-subtitle mb-2 text-center">{{ produto.descricao }}</h5>
+                                <p class="card-text text-center" >{{ produto.marca }}</p>
+                                <p class="card-text text-center" ><strong>{{ produto.quantidade }}</strong></p>
+                                <p class="card-text text-center  text-danger" ><strong>Preço: {{ produto.preco_venda }}</strong></p>
+                            </a>
+
+<!--
+                                <a href="{{ produto.get_absolute_url }}"><p>{% qr_from_text produto.get_absolute_url size="S" %}</p></a>
+-->
+
+                            <a href="{{ produto.get_absolute_url }}" class="btn btn-outline-success btn-block">adicionar ao <i class="fas fa-shopping-cart"></i></a>
+                            <!--<a href="{% url 'materiais:produto_detalhe' produto.id %}" class="btn btn-outline-primary btn-sm"><i class="fas fa-info-circle"></i> Detalhes</a>-->
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    {% else %}
+        <p><i class="fas fa-grimace"></i></p>
+        <h2>Sua pesquisa por <strong><u>{{ request.GET.q }}</u></strong> não encontrou nenhum resultado. </h2>
+        <div align="right">
+            <a class="nav-link" href="{% url 'materiais:produto_list' %}">
+                <i class="fas fa-arrow-circle-left"></i> Voltar
+            </a>
+        </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}

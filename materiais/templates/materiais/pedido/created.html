@@ -1,0 +1,16 @@
+{% extends "materiais/base.html" %}
+
+{% block title %}
+    Obrigado!
+{% endblock %}
+
+{% block content %}
+    <h1>Obrigado!</h1>
+    <p>Seu Pedido foi gravado com sucesso.</p>
+    <!-- <p>O número do Pedido é <strong>{{ pedidoweb.id }}</strong> <i class="fas fa-briefcase"></i> </p> -->
+    <p>
+        <a href="{% url 'materiais:pedidoweb_detail' pedidoweb.id %}"
+            class="btn btn-outline-primary btn-sm" role="button"> O número do Pedido é <strong>{{ pedidoweb.id }}</strong>
+        </a>
+    </p>
+{% endblock %}

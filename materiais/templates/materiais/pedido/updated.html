@@ -1,0 +1,15 @@
+{% extends "materiais/base.html" %}
+
+{% block title %}
+    Atenção!
+{% endblock %}
+
+{% block content %}
+    <h1>Atenção!</h1>
+    <p>Seu Pedido foi alterado com sucesso.</p>
+    <p>
+        <a href="#"
+            class="btn btn-outline-primary btn-sm" role="button"> Detalhes do Pedido <strong>{{ pedidoweb.id }}</strong>
+        </a>
+    </p>
+{% endblock %}

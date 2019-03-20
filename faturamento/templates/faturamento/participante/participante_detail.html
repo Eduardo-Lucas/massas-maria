@@ -1,0 +1,66 @@
+{% extends 'materiais/base.html' %}
+
+{% block content %}
+<div class="col-md-offset-3">
+
+    <!-- Histórico Padrão Info -->
+    <h1>Razão Social: <strong><u>{{ participante.razao_social}}</u></strong></h1>
+    <div class="col-sm-4 col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body" align="right">
+                <a href="{% url 'faturamento:participante_list' %}">
+                     <i class="fas fa-arrow-circle-left"></i> Voltar
+                </a>
+            </div>
+
+            <h5>Nome Fantasia: <strong>{{ participante.nome_fantasia }}</strong></h5>
+            <h5>Vendedor     : <strong>{{ participante.vendedor }}</strong></h5>
+            <h5>Endereço     : <strong>{{ participante.endereco }}</strong></h5>
+            <h5>Complemento  : <strong>{{ participante.exibe_complemento }}</strong></h5>
+            <h5>Telefone 1   : <strong>{{ participante.telefone }}</strong></h5>
+            <h5>Telefone 2   : <strong>{{ participante.exibe_telefone2 }}</strong></h5>
+            <h5>Celular 1   : <strong>{{ participante.celular }}</strong></h5>
+            <h5>Celular 2   : <strong>{{ participante.celular2 }}</strong></h5>
+            <h5>E-mail       : <strong>{{ participante.exibe_email }}</strong></h5>
+            <h5>Bairro       : <strong>{{ participante.exibe_bairro }}</strong></h5>
+            <h5>Cidade       : <strong>{{ participante.cidade }}</strong></h5>
+            <h5>Estado       : <strong>{{ participante.estado }}</strong></h5>
+        </div>
+
+    </div>
+
+        {% if participante.pedidoweb_set.all %}
+        <table class="responsive table table-responsive table-condensed table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Sequência</th>
+                    <th>Descrição</th>
+                    <th style="text-align:right">Preço Unitário</th>
+                    <th style="text-align:right">Quantidade</th>
+                    <th style="text-align:right">% Desconto</th>
+                    <th style="text-align:right">Preço Líquido</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for item in clienteWeb.pedidoweb_set %}
+                    <tr>
+                        <td>{{ item.sequencia }}</td>
+                        <td>{{ item.produto }}</td>
+                        <td style="text-align:right">{{ item.preco_unitario|floatformat:2 }}</td>
+                        <td style="text-align:right">{{ item.quantidade|floatformat:0 }}</td>
+                        <td style="text-align:right">{{ item.perc_desc|floatformat:2 }}</td>
+                        <td style="text-align:right">{{ item.total_produto|floatformat:2 }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    {% endif %}
+
+
+</div>
+{% endblock %}
+
+
+

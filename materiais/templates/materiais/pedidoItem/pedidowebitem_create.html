@@ -1,0 +1,26 @@
+{% extends "materiais/base.html" %}
+{% load static %}
+
+{% block title %}Adiciona um Item no Pedido{% endblock %}
+
+{% block content %}
+
+    <h1>Adiciona um item no Pedido #{{ context.pedido }}</h1>
+
+
+<div class="alert alert-warning"  role="alert">
+  <p>Para adicionar 1 ou mais itens a um Pedido já gravado é muito simples:</p>
+    <p>
+      1. Escolha o(s) produto(s) desejado(s); <br>
+      2. Coloque o(s) no carrinho de compra; <br>
+      3. Quando terminar, escolha o pedido onde quer que o(s) produto(s) seja(m) adicionado(s); <br>
+      4. Pronto, agora é só gravar.
+  </p>
+    <hr>
+
+    <a href="{% url 'materiais:produto_list' %}" class="btn btn-outline-success" role="button">Lista de Produtos</a>
+
+</div>
+
+
+{% endblock %}

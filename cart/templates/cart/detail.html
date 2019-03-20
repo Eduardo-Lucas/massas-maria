@@ -1,0 +1,67 @@
+{% extends "materiais/base.html" %}
+{% load static %}
+
+{% block title %}
+    Seu carrinho de compras
+{% endblock %}
+
+{% block content %}
+
+    <div class="d-block">
+
+    {% if cart %}
+
+       <p class="text-right">
+            <a href="{% url 'materiais:produto_list' %}" class="btn btn-outline-success" role="button">Continuar comprando</a>
+            <a href="{% url 'materiais:order_create' %}" class="btn btn-outline-success" role="button">Fechar Pedido</a>
+       </p>
+
+        <h5><i class="fas fa-arrow-alt-circle-down"></i> Itens no seu carrinho de compras <i class="fas fa-arrow-alt-circle-down"></i></h5>
+
+        <div class="row">
+            {% for item in cart %}
+                {% with produto=item.product %}
+
+                     <div class="col-sm-4">
+                          <div class="card border-success mb-3" style="background-color: #eee;">
+                              <img src="{% if produto.image %}{{ produto.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
+                               <div class="card-body">
+                                   <p class="card-text">{{ produto.descricao|capfirst }}</p>
+                                   <p class="card-text">
+                                        <form action="{% url 'cart:cart_add' produto.id %}" method="post">
+                                            Quantidade: {{ item.update_quantity_form.quantity }}
+                                            {{ item.update_quantity_form.update }}
+                                            <input type="submit" value="Atualizar">
+                                            <i class="fas fa-wrench"></i>
+                                            {% csrf_token %}
+                                        </form>
+                                   </p>
+
+<!--
+                                   <p class="card-text">Preço de Venda: R$ {{ item.price|floatformat:2 }}</p>
+                                   <p class="card-text">Percentual de Desconto: {{ item.perc_desc|floatformat:4 }}%</p>
+                                   <p class="card-text">Valor do Desconto: R$ {{ item.valor_desconto|floatformat:2 }}</p>
+-->
+                                   <p class="card-text">Preço Líquido: R$ {{ item.total_price|floatformat:2 }}</p>
+
+                                    <a href="{% url 'cart:cart_remove' produto.id %}">Remover <i class="fas fa-trash-alt"></i></a>
+                               </div>
+                          </div>
+                     </div>
+
+
+
+
+
+                {% endwith %}
+            {% endfor %}
+        </div>
+
+    {% else %}
+
+        <h1 align="center"><i class="fas fa-shopping-cart"></i> Seu carrinho está vazio!</h1>
+        <a href="{% url 'materiais:produto_list' %}" class="btn btn-success btn-lg btn-block" role="button">Continuar comprando!</a>
+
+    {% endif%}
+    </div>
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends "materiais/base.html" %}
+
+{% block title %}Detalhes do Pedido{% endblock %}
+
+{% block content %}
+
+    <div align="right">
+        <a class="nav-link" href="{% url 'materiais:pedidoweb_list' %}">
+             <i class="fas fa-arrow-circle-left"></i> Voltar
+        </a>
+    </div>
+
+    <ul>
+        <li><h4>Pedido: {{ pedidoweb.id }} - {{ pedidoweb.participante }}</h4></li>
+        <li>Status do Pedido:
+            <strong>
+                <select>
+                    <option value="{{ pedidoweb.status_pedido}}">{{ pedidoweb.status_pedido}}</option>
+                </select>
+            </strong>
+        </li>
+        <li>Total do Pedido: <strong>{{ pedidoweb.total_produtos}}</strong></li>
+        <li>Tipo de Pagamento: <strong>{{pedidoweb.tipo_de_pagamento}}</strong></li>
+        <li>Prazo de Pagamento: <strong>{{ pedidoweb.prazo_de_pagamento }}</strong></li>
+        <li>Observações: <strong>{{ pedidoweb.observacoes }}</strong></li>
+    </ul>
+
+    <div align="right">
+    <a href="{% url 'materiais:adiciona_item_pedido' pedidoweb.id  %}"
+        class="btn btn-outline-warning btn-sm" role="button" data-toggle="tooltip" data-placement="top" title="Adiciona um Item">
+        <i class="fas fa-plus-square"></i> Adiciona um item
+    </a>
+    </div>
+
+    {% if pedidoweb.items.all %}
+        <table class="responsive table table-responsive table-condensed table-bordered table-hover table-striped table-dark">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Descrição</th>
+                    <th style="text-align:right">Preço Unitário</th>
+                    <th style="text-align:right">Quant.</th>
+                    <th style="text-align:right">Preço Bruto</th>
+                    <th style="text-align:right">% Desconto</th>
+                    <th style="text-align:right">Valor Desconto</th>
+                    <th style="text-align:right">Preço Líquido</th>
+                    <th style="text-align:right"></th>
+                    <th style="text-align:right"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for item in pedidoweb.items.all %}
+                    <tr>
+                        <td>{{ item.sequencia }}</td>
+                        <td>{{ item.produto }}</td>
+                        <td style="text-align:right">{{ item.preco_unitario|floatformat:2 }}</td>
+                        <td style="text-align:right">{{ item.quantidade|floatformat:0 }}</td>
+                        <td style="text-align:right">{{ item.total_preco_bruto|floatformat:2 }}</td>
+                        <td style="text-align:right">{{ item.perc_desc|floatformat:2 }}%</td>
+                        <td style="text-align:right">{{ item.valor_desconto|floatformat:2 }}</td>
+                        <td style="text-align:right">{{ item.preco_liquido|floatformat:2 }}</td>
+                        <!-- Apaga o Item -->
+                        <td>
+                            <a href="{% url 'materiais:pedidowebitem_delete' item.id %}"
+                                class="btn btn-outline-primary btn-sm" role="button" data-toggle="tooltip" data-placement="top" title="Apaga o Item">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+
+                        </td>
+                        <!-- Edita o Item -->
+                        <td>
+                            <a href="{% url 'materiais:edita_item_pedido' item.id %}"
+                                class="btn btn-outline-primary btn-sm" role="button" data-toggle="tooltip" data-placement="top" title="Atualiza o Item">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Descrição</th>
+                    <th style="text-align:right">Preço Unitário</th>
+                    <th style="text-align:right">Quant.</th>
+                    <th style="text-align:right">Preço Bruto</th>
+                    <th style="text-align:right">% Desconto</th>
+                    <th style="text-align:right">Valor Desconto</th>
+                    <th style="text-align:right">Preço Líquido</th>
+                    <th style="text-align:right"></th>
+                    <th style="text-align:right"></th>
+                </tr>
+            </thead>
+
+            <tr>
+                
+                <td colspan="3"></td>
+                <td style="text-align:right"><strong>Total </strong></td>                
+                <td class="num"><strong>R$ {{ pedidoweb.total_preco_bruto|floatformat:2 }}</strong></td>
+                <td class="num"><strong> </strong></td>
+                <td class="num"><strong>R$ {{ pedidoweb.total_desconto|floatformat:2 }}</strong></td>
+                <td class="num"><strong>R$ {{ pedidoweb.total_preco_liquido|floatformat:2 }}</strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    {% endif %}
+
+{% endblock %}

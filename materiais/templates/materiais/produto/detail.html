@@ -1,0 +1,123 @@
+{% extends "materiais/base.html" %}
+{% load static %}
+
+{% block title %}
+    {{ produto.descricao }}
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="product-detail">
+       <img src="{% if produto.image %}{{ produto.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
+
+        <h4>Código: {{ produto.produto }} - {{ produto.descricao }}</h4>
+        <h6><a href="{{ produto.categoria.get_absolute_url }}">Categoria: {{ produto.categoria }}</a></h6>
+        <p class="price"><h6>Preço Unitário: R$ {{ produto.preco_venda }}</h6></p>
+        <form action="{% url 'cart:cart_add' produto.id %}" method="post">
+            {{ cart_produto_form }}
+            {% csrf_token %}
+
+            <input type="submit" value="Adicionar ao Carrinho">
+            <i class="fas fa-thumbs-up fa-2x"></i>
+
+        </form>
+    </div>
+
+    <!--<div class="row">
+        <div class="col-3">
+            <h4>{{ produto.descricao }}</h4>
+            <p>{{ produto.marca }}</p>
+            <p class="text-dark">{{ produto.observacao }}</p>
+        </div>
+        <div class="col-3">
+            <img src="{{ produto.image.url }}" class="card-img-top" alt="...">
+        </div>
+        <div class="col-4">
+            <div class="row">
+                <div class="col-2">
+                    Quantidade:
+                </div>
+            </div>
+
+            <form action="{% url 'cart:cart_add' produto.id %}" method="post">
+                <div class="row">
+                            <div class="col-3">
+                                {{ cart_produto_form }}
+                                {% csrf_token %}
+                            </div>
+                            <div class="col-5">
+                                <p class="text-danger"><strong>R${{ produto.preco_venda }}</strong></p>
+                            </div>
+                            <input type="submit button" class="btn btn-outline-success"  value="Comprar">
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-5">
+                <h3 class="text-danger">Descrição do Produto</h3>
+                <p class="text-dark"><strong><u>O que é:</u></strong> {{ produto.o_que_e }}</p>
+                <p class="text-dark"><strong><u>Para que serve:</u></strong> {{ produto.para_que_serve }}</p>
+                <p class="text-dark"><strong><u>Modo de usar:</u></strong> {{ produto.modo_de_usar }}</p>
+            </div>
+
+            <div class="col-5">
+                <h3 class="text-danger">Características do Produto</h3>
+                <table class="table table-bordered table-striped table-hover">
+                    <body>
+                        <tr>
+                            <td><strong>Código do Produto</strong></td>
+                            <td>{{ produto.produto }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>EAN</strong></td>
+                            <td>{{ produto.ean }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Peso</strong></td>
+                            <td>{{ produto.peso_liquido }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Quantidade</strong></td>
+                            <td>{{ produto.quantidade }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Marca</strong></td>
+                            <td>{{ produto.marca }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fabricante</strong></td>
+                            <td>{{ produto.marca }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bula</strong></td>
+                            <td>{{ produto.get_bula }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Registro MS</strong></td>
+                            <td>{{ produto.get_registro_ms }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Princípio Ativo</strong></td>
+                            <td>{{ produto.get_principio_ativo }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dosagem</strong></td>
+                            <td>{{ produto.get_dosagem }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fator</strong></td>
+                            <td>{{ produto.get_fator }}</td>
+                        </tr>
+
+                    </body>
+                </table>
+            </div>
+        </div>-->
+{% endblock %}

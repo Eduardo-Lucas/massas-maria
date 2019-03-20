@@ -1,0 +1,69 @@
+{% extends "materiais/base.html" %}
+{% load form_tags %}
+{% load static %}
+
+{% block title %}
+    Fechar Pedido
+{% endblock %}
+
+{% block content %}
+
+{% if user.groups.all.0.name == "Vendedores" %}
+    <h3>Grupo de Vendedores</h3>
+{% else %}
+    <h3>Grupo de {{user.groups.all.0.name}}</h3>
+{% endif %}
+
+<h2>Fechar Pedido</h2>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="card border-warning mb-3" style="background-color: #eee;">
+                <div class="card-body">
+                <form action="." method="post" class="order-form">
+                        {% csrf_token %}
+
+                        {% if request.user|has_group:"Vendedores" %}
+                            <h6 class="card-text">Vendedor: {{ form.vendedor }}</h6>
+                            <h6 class="card-text">Cliente: <a href="{% url 'faturamento:participante_list' %}"></a> {{ form.participante }}</h6>
+                            <h6 class="card-text"><a href="{% url 'faturamento:participante_add' %}">Criar Novo Cliente</a></h6>
+                        {% endif %}
+
+                        <h6 class="card-text">Forma: {{ form.tipo_de_pagamento }}</h6>
+                        <h6 class="card-text">Prazo: {{ form.prazo_de_pagamento }}</h6>
+
+
+                        <p><input type="submit" value="Gravar Pedido"></p>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Itens no Pedido:</h3>
+    <div class="row">
+        {% for item in cart %}
+            {% with produto=item.product %}
+                <div class="col-sm-4">
+                    <div class="card border-warning mb-3" style="background-color: #eee;">
+                        <img src="{% if produto.image %}{{ produto.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{item.codigo}}-{{ item.descricao }}</h5>
+                            <h5 class="card-text"> Total do Item: {{ item.total_price|floatformat:2 }}</h5>
+                            <a href="{% url 'cart:cart_remove' produto.id %}">Remover <i class="fas fa-trash-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+            {% endwith %}
+        {% endfor %}
+    </div>
+
+    <div class="col-sm-12">
+        <h5 class="card-text">Total do Pedido: R$ {{ cart.get_total_price|floatformat:2 }}</h5>
+    </div>
+
+</div>
+
+{% endblock %}

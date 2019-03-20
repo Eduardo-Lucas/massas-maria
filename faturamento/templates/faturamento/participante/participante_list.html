@@ -1,0 +1,100 @@
+{% extends 'materiais/base.html' %}
+{% block participante_active %}active{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="card-group">
+
+        <div class="card" align="center">
+            <h5 style="margin-center"><strong>Lista de Clientes</strong></h5>
+        </div>
+
+        <div class="card" align="left">
+             <!-- Pesquisa -->
+            <form class="form-inline mt-2 mt-md-0">
+                <input class="form-control mr-sm-2" id="searchbox" name="q" type="text" value="{{ request.GET.q }}" placeholder="Razão Social e CNPJ" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisa <i class="fas fa-search"></i></button>
+            </form>
+        </div>
+
+
+
+        <div class="card" align="center">
+            <!-- pagination -->
+            <nav aria-label="Page navigation example">
+              <ul class="pagination pagination-sm justify-content-end">
+
+                {% if object_list.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ object_list.previous_page_number }}&q={{ request.GET.q }}"><i class="fas fa-chevron-circle-left"></i> Anterior</a></li>
+                {% endif %}
+
+                <li class="page-item active">
+                    <span class="page-link">
+                            Página {{ object_list.number }} de {{ object_list.paginator.num_pages }}
+                            <span class="sr-only">(current)</span>
+                    </span>
+                </li>
+
+                {% if object_list.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ object_list.next_page_number }}&q={{ request.GET.q }}"><i class="fas fa-chevron-circle-right"></i> Próxima</a></li>
+                {% endif %}
+
+              </ul>
+            </nav>
+            <!--end of pagination-->
+        </div>
+
+        <!--<div class="card" align="center">
+         &lt;!&ndash; Botão Cria Registro &ndash;&gt;
+            <a href="{% url 'faturamento:participante_add' %}">
+                <button type="button" class="btn btn-success" data-toggle="tooltip"
+                        title="Cria um novo registro"
+                        style="margin-center: 4px;">
+                    <i class="fas fa-plus-circle"></i>&nbsp; Cria Participante
+                </button>
+            </a>
+        </div>-->
+
+    </div>
+    <!--end of card-group-->
+</div>
+
+<div class="container">
+        {% if object_list %}
+                    <div class="row">
+                        {% for participante in object_list %}
+                            <div class="col-sm-6">
+                                <div class="card border-dark mb-3" style="background-color: #eee;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">#{{ participante.codigo }} - Razão Social: {{ participante.razao_social}}</h5>
+                                        <p class="card-text">Nome Fantasia: {{ participante.nome_fantasia }} - Tipo: {{ participante.exibe_fisica_juridica }}</p>
+                                        <p class="card-text"> <i class="fas fa-phone-square"></i> {{ participante.telefone }} {% if participante.celular %} - <i class="fas fa-mobile-alt"></i> {{ participante.celular }}{%endif%}</p>
+                                        <p class="card-text"> <i class="fas fa-map-marker-alt"></i></i> {{ participante.cidade }} - {{ participante.estado }}</p>
+
+                                        <!-- Detalhes -->
+                                        <a href="{% url 'faturamento:participante_detail' participante.id %}"
+                                           class="btn btn-outline-primary btn-sm"><i class="fas fa-info-circle"></i> Detalhes</a>
+
+                                        <!-- Altera -->
+                                        <a href="{% url 'faturamento:participante_edit' participante.id %}"
+                                            class="btn btn-outline-primary btn-sm" role="button" >
+                                            <i class="fas fa-pencil-alt"></i>Edita
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+        {% else %}
+            <h2>Nenhum registro encontrado para a pesquisa {{ request.GET.q }} </h2>
+        <div align="right">
+            <a class="nav-link" href="{% url 'faturamento:participante_list' %}">
+                <i class="fas fa-arrow-circle-left"></i> Voltar
+            </a>
+        </div>
+        {% endif %}
+</div>
+{% endblock %}
