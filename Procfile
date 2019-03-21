@@ -1,1 +1,1 @@
-web: gunicorn usesoft_R3.wsgi --log-file -
+web: gunicorn qrcomprar.wsgi --log-file -
