@@ -1,3 +1,4 @@
+import requests
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
@@ -6,6 +7,7 @@ from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 from django.forms import formset_factory
 from django.urls import reverse_lazy
+from django.views.decorators.http import require_POST
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 
 from cart.cart import Cart
@@ -16,7 +18,6 @@ from .models import Produto, PedidoWeb, PedidoWebItem
 from .forms import OrderUpdateForm, OrderCreateForm, PedidoWebForm, PedidoWebItemForm
 
 
-@login_required
 def home(request):
     return render(request, 'materiais/produto/list.html')
 
@@ -32,7 +33,7 @@ class ProdutoCreate(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     template_name = 'materiais/produto/produto_form.html'
 
 
-class ProdutoList(SuccessMessageMixin, LoginRequiredMixin, ListView):
+class ProdutoList(SuccessMessageMixin, ListView):
     model = Produto
     context_object_name = 'produtos'
     template_name = 'materiais/produto/list.html'
@@ -89,7 +90,6 @@ class ProdutoList(SuccessMessageMixin, LoginRequiredMixin, ListView):
 #                                                            'produtos': produtos})
 
 
-@login_required()
 def produto_detail(request, id=None, slug=None):
     produto = get_object_or_404(Produto, id=id, slug=slug, disponivel='S')
     cart_produto_form = CartAddProductForm(initial={'preco_negociado': produto.preco_venda})
@@ -452,3 +452,82 @@ def pedidowebitemcreate(request, pk):
                   {'context': context})
 
 
+def expedicao(request):
+    pedidos_separar = PedidoWeb.objects.filter(Q(status_pedido__startswith='e') | Q(status_pedido__startswith='w'))
+    pedidos_em_separacao = PedidoWeb.objects.filter(status_pedido='s')
+    pedidos_separados = PedidoWeb.objects.filter(status_pedido='t')
+    
+    return render(request, 'materiais/expedicao/expedicao.html',
+                  {'pedidos_separar':      pedidos_separar,
+                   'pedidos_em_separacao': pedidos_em_separacao,
+                   'pedidos_separados':    pedidos_separados})
+
+
+@require_POST
+def inicia_separacao(request, id):
+    pedido = get_object_or_404(PedidoWeb, id=id)
+    pedido.status_pedido = 's'
+    pedido.save()
+    
+    pedidos_separar = PedidoWeb.objects.filter(Q(status_pedido__startswith='e') | Q(status_pedido__startswith='w'))
+    pedidos_em_separacao = PedidoWeb.objects.filter(status_pedido='s')
+    pedidos_separados = PedidoWeb.objects.filter(status_pedido='t')
+    
+    return render(request, 'materiais/expedicao/expedicao.html',
+                  {'pedidos_separar':      pedidos_separar,
+                   'pedidos_em_separacao': pedidos_em_separacao,
+                   'pedidos_separados':    pedidos_separados})
+
+
+@require_POST
+def finaliza_separacao(request, id):
+    pedido = get_object_or_404(PedidoWeb, id=id)
+    pedido.status_pedido = 't'
+    pedido.save()
+    
+    pedidos_separar = PedidoWeb.objects.filter(Q(status_pedido__startswith='e') | Q(status_pedido__startswith='w'))
+    pedidos_em_separacao = PedidoWeb.objects.filter(status_pedido='s')
+    pedidos_separados = PedidoWeb.objects.filter(status_pedido='t')
+    
+    return render(request, 'materiais/expedicao/expedicao.html',
+                  {'pedidos_separar':      pedidos_separar,
+                   'pedidos_em_separacao': pedidos_em_separacao,
+                   'pedidos_separados':    pedidos_separados})
+
+
+@require_POST
+def estorna_separacao(request, id):
+    pedido = get_object_or_404(PedidoWeb, id=id)
+    pedido.status_pedido = 'e'
+    pedido.save()
+    
+    pedidos_separar = PedidoWeb.objects.filter(Q(status_pedido='e') | Q(status_pedido='w'))
+    pedidos_em_separacao = PedidoWeb.objects.filter(status_pedido='s')
+    pedidos_separados = PedidoWeb.objects.filter(status_pedido='t')
+    
+    return render(request, 'materiais/expedicao/expedicao.html',
+                  {'pedidos_separar':      pedidos_separar,
+                   'pedidos_em_separacao': pedidos_em_separacao,
+                   'pedidos_separados':    pedidos_separados})
+
+
+class AlteraLojaUpdate(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
+    model = PedidoWeb
+    fields = ['loja', ]
+    context_object_name = 'pedidoweb'
+    template_name = 'materiais/expedicao/altera_loja.html'
+
+
+def checkout(request):
+    url = "https://ws.sandbox.pagseguro.uol.com.br/v2/sessions"
+    
+    credenciais = {
+        'email': 'eduardolucas40@gmail.com',
+        'token': '9958CD2A81104D2B8DD725AEBB9BD28F'
+    }
+    
+    headers = {'user-agent': 'my-app/0.0.1'}
+    
+    session_id = requests.post(url, params=credenciais)
+    
+    return render(request, 'materiais/checkout/checkout.html', {'session_id': session_id})

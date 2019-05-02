@@ -7,16 +7,19 @@
 
 {% block content %}
 
-    <div class="d-block">
+    <div class="container-fluid">
 
     {% if cart %}
 
+        <br>
        <p class="text-right">
             <a href="{% url 'materiais:produto_list' %}" class="btn btn-outline-success" role="button">Continuar comprando</a>
-            <a href="{% url 'materiais:order_create' %}" class="btn btn-outline-success" role="button">Fechar Pedido</a>
+       </p>
+        <p class="text-right">
+            <a href="{% url 'materiais:order_create' %}" class="btn btn-outline-success" role="button">Concluir Compra</a>
        </p>
 
-        <h5><i class="fas fa-arrow-alt-circle-down"></i> Itens no seu carrinho de compras <i class="fas fa-arrow-alt-circle-down"></i></h5>
+        <h6><i class="fas fa-arrow-alt-circle-down"></i> Itens no carrinho de compras <i class="fas fa-arrow-alt-circle-down"></i></h6>
 
         <div class="row">
             {% for item in cart %}

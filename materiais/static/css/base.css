@@ -326,3 +326,11 @@ ul.errorlist {
 .recommendations.cart img {
     width:120px;
 }
+
+.center {
+    padding: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}

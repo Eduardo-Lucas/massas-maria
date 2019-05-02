@@ -22,8 +22,8 @@ def cart_add(request, produto_id):
                          preco_negociado=0,
                          update_quantity=cd['update'],
                          desconto=0)
-                messages.success(request, 'Produto ' + produto.produto + ' ' + produto.descricao +
-                                 ' colocado no carrinho.')
+                messages.success(request, 'Produto ' + ' ' + produto.descricao +
+                                 ' adicionado ao carrinho.')
         else:
             cart.add(produto=produto,
                      quantity=cd['quantity'],
@@ -34,17 +34,15 @@ def cart_add(request, produto_id):
     return redirect('cart:cart_detail')
 
 
-@login_required
 def cart_remove(request, produto_id):
     cart = Cart(request)
     produto = get_object_or_404(Produto, id=produto_id)
     cart.remove(produto)
-    messages.success(request, 'Produto ' + produto.produto + ' ' + produto.descricao + ' removido do carrinho.')
+    messages.success(request, 'Produto ' + ' ' + produto.descricao + ' removido do carrinho.')
 
     return redirect('cart:cart_detail')
 
 
-@login_required
 def cart_detail(request):
     cart = Cart(request)
     for item in cart:
