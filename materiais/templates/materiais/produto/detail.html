@@ -11,7 +11,7 @@
     <div class="product-detail">
        <img src="{% if produto.image %}{{ produto.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
 
-        <h4>Código: {{ produto.produto }} - {{ produto.descricao }}</h4>
+        <h4>{{ produto.descricao }}</h4>
         <p class="price"><h6>Preço Unitário: R$ {{ produto.preco_venda }}</h6></p>
         <form action="{% url 'cart:cart_add' produto.id %}" method="post">
             {{ cart_produto_form }}
