@@ -8,7 +8,7 @@
 
 {% block content %}
 
-    <div class="product-detail">
+    <div class="container-fluid">
        <img src="{% if produto.image %}{{ produto.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
 
         <h4>{{ produto.descricao }}</h4>
