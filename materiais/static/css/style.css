@@ -238,9 +238,12 @@ a.article:hover {
         -ms-transform: translateX(50%);
         transform: translateX(50%);
     }
+
     #sidebar.active {
-        margin-left: 0 !important;
+        /* margin-left: 0 !important;*/
+        margin-left: -250px;
     }
+
     #sidebar .sidebar-header h3,
     #sidebar .CTAs {
         display: none;
