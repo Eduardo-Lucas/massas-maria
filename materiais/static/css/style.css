@@ -73,17 +73,15 @@ span {
 }
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
+    min-width: 200px;
+    max-width: 200px;
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
 }
 
 #sidebar.active {
-    min-width: 80px;
-    max-width: 80px;
-    text-align: center;
+    margin-left: -250px;
 }
 
 #sidebar.active .sidebar-header h3,
@@ -211,6 +209,14 @@ a.article:hover {
     padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;
+}
+
+.center {
+    padding: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 /* ---------------------------------------------------
