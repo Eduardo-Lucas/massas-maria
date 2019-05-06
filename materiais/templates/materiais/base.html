@@ -37,23 +37,23 @@
             <ul class="list-unstyled components">
                 <li>
                     <a href="{% url 'materiais:pedidoweb_list' %}">
-                        <i class="fas fa-home"></i>
+<!--                        <i class="fas fa-home"></i>-->
                             Pedidos
                     </a>
                     {% if user.groups.all.0.name == "Vendedores" %}
                         <a href="{% url 'faturamento:participante_list' %}">
-                            <i class="fas fa-briefcase"></i>
+<!--                            <i class="fas fa-briefcase"></i>-->
                             Clientes
                         </a>
                     {% endif %}
 
                     <a href="{% url 'materiais:produto_list' %}">
-                        <i class="fas fa-copy"></i>
+<!--                        <i class="fas fa-copy"></i>-->
                         Produtos
                     </a>
 
                     <a href="{% url 'materiais:expedicao' %}">
-                        <i class="fas fa-copy"></i>
+<!--                        <i class="fas fa-copy"></i>-->
                         Expedição
                     </a>
 
