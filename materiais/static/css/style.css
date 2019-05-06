@@ -206,7 +206,8 @@ a.article:hover {
 
 #content {
     width: 100%;
-    padding: 20px;
+    padding: 0;
+    /*padding: 20px;*/
     min-height: 100vh;
     transition: all 0.3s;
 }
@@ -241,7 +242,6 @@ a.article:hover {
 
     #sidebar.active {
        margin-left: 0 !important;
-
     }
 
     #sidebar .sidebar-header h3,
