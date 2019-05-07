@@ -8,31 +8,33 @@
 
 {% block content %}
 
-{% if user.groups.all.0.name == "Vendedores" %}
+<!--{% if user.groups.all.0.name == "Vendedores" %}
     <h3>Grupo de Vendedores</h3>
 {% else %}
     <h3>Grupo de {{user.groups.all.0.name}}</h3>
-{% endif %}
+{% endif %}-->
 
-<h2>Fechar Pedido</h2>
 
-<div class="container">
+<div class="container-fluid">
+    <h2>Fechar Pedido</h2>
 
-    <div class="row">
+    <div class="container-fluid">
         <div class="col-sm-8">
             <div class="card border-warning mb-3" style="background-color: #eee;">
                 <div class="card-body">
                 <form action="." method="post" class="order-form">
                         {% csrf_token %}
 
-                        {% if request.user|has_group:"Vendedores" %}
+                        <!--{% if request.user|has_group:"Vendedores" %}
                             <h6 class="card-text">Vendedor: {{ form.vendedor }}</h6>
                             <h6 class="card-text">Cliente: <a href="{% url 'faturamento:participante_list' %}"></a> {{ form.participante }}</h6>
                             <h6 class="card-text"><a href="{% url 'faturamento:participante_add' %}">Criar Novo Cliente</a></h6>
-                        {% endif %}
+                        {% endif %}-->
 
-                        <h6 class="card-text">Forma: {{ form.tipo_de_pagamento }}</h6>
-                        <h6 class="card-text">Prazo: {{ form.prazo_de_pagamento }}</h6>
+                        <h6 class="card-text">Tipo de Saída: {{ form.tipo_pedido }}</h6>
+                        <h6 class="card-text">Loja     : {{ form.loja }}</h6>
+                        <h6 class="card-text">Forma de Pagamento: {{ form.tipo_de_pagamento }}</h6>
+                        <h6 class="card-text">Prazo de Pagamento: {{ form.prazo_de_pagamento }}</h6>
 
 
                         <p><input type="submit" value="Gravar Pedido"></p>

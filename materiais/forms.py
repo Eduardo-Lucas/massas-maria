@@ -11,9 +11,10 @@ from .models import PedidoWeb, PedidoWebItem
 class OrderCreateForm(ModelForm):
     class Meta:
         model = PedidoWeb
-        fields = ['tipo_de_pagamento', 'prazo_de_pagamento']
+        fields = ['tipo_pedido', 'loja', 'tipo_de_pagamento', 'prazo_de_pagamento']
+        # fields = ['tipo_de_pagamento', 'prazo_de_pagamento']
         # fields = ['id', 'vendedor', 'participante', 'tipo_de_pagamento', 'prazo_de_pagamento', 'observacoes']
-
+        
         
 class OrderUpdateForm(forms.Form):
     id = forms.ModelChoiceField(queryset=PedidoWeb.objects.all(), label='Pedido', widget=forms.Select)
