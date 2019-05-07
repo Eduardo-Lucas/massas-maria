@@ -2007,6 +2007,35 @@ class PedidoNfItem(models.Model):
         verbose_name_plural = 'Cadastro de Pedidos'
 
 
+# -----------------------------------------
+# Loja onde o Pedido vai ser atendido,
+# caso o Cliente escolhe retirar no local
+# -----------------------------------------
+class Loja(models.Model):
+    nome = models.CharField(max_length=100, unique=False, blank=True, null=True)
+    endereco = models.CharField(max_length=50)
+    numero = models.CharField(max_length=10, blank=True, null=True)
+    bairro = models.CharField(max_length=50, blank=True, null=True)
+    cidade = models.CharField(max_length=50, blank=True, null=True)
+    uf = models.ForeignKey(Uf, on_delete=models.CASCADE)
+    telefone = models.CharField(max_length=50, blank=True, null=True)
+    cep = models.CharField(max_length=10, blank=True, null=True)
+    
+    def __str__(self):
+        if self.bairro:
+            return self.endereco + ', ' + self.numero + ' - ' + self.bairro + ' - ' + self.cidade + ' - ' + \
+                   str(self.uf)
+        else:
+            return self.endereco + ', ' + self.numero + ' - ' + self.cidade + ' - ' + str(self.uf)
+    
+    def local(self):
+        return self.nome
+    
+    class Meta:
+        verbose_name = 'Cadastro de Loja'
+        verbose_name_plural = 'Cadastro de Lojas'
+
+
 # ----------------------------------------------------------------------------------------------------------------------
 # PEDIDOS DE VENDAS ORÇAMENTOS ENCOMENDAS REQUISIÇÕES ETC (KCEI03)
 # ----------------------------------------------------------------------------------------------------------------------
@@ -2014,6 +2043,7 @@ class PedidoWeb(models.Model):
     # id do será o Número do pedido
     # Série será as 3 primeiras letras do Código da empresa
     # subserie conforme operação "VEN" "ORC" "ETC"
+    loja = models.ForeignKey(Loja, on_delete=models.CASCADE, null=True, blank=True, )
     serie = models.CharField("Série", max_length=3, null=False, default='MAT')
     subserie = models.CharField("Subsérie", max_length=3, null=False, default='WEB')
 

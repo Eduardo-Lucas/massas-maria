@@ -3,7 +3,7 @@ from import_export.admin import ImportExportModelAdmin
 
 
 from .models import Fabricante, Produto, Categoria, PedidoWebItem, PedidoWeb, ProdutoDepartamento, \
-    ProdutoTributacao, ProdutoPromocao, PedidoTipo, Marca
+    ProdutoTributacao, ProdutoPromocao, PedidoTipo, Marca, Loja
 
 
 class ProdutoInLine(admin.TabularInline):
@@ -68,4 +68,9 @@ class FabricanteResource(ImportExportModelAdmin):
 
 @admin.register(Marca)
 class MarcaResource(ImportExportModelAdmin):
+    pass
+
+
+@admin.register(Loja)
+class LojaResource(ImportExportModelAdmin):
     pass
