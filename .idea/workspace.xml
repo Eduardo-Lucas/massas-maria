@@ -2,51 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84d38dda-06e7-449d-9da3-e8a9234cf1b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/eduar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materiais/migrations/0002_remove_pedidowebitem_participante.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materiais/static/img/massa-1-kg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materiais/static/img/massa-500g.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materiais/static/img/no_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/produtos/2020/05/06/massa-1-kg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/produtos/2020/05/06/massa-500g.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/produtos/2020/05/06/nhoque.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/produtos/2020/05/06/no_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/produtos/2020/05/06/no_image_GOX1LKD.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/produtos/2020/05/07/lasanha-1kg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/produtos/2020/05/07/lasanha-400.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/produtos/2020/05/07/massa-disco.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/produtos/2020/05/07/nhoque-400.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/qrcomprar.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/qrcomprar.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contabilidade/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/contabilidade/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/faturamento/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/faturamento/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financeiro/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/financeiro/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financeiro/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/financeiro/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fiscal/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/fiscal/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/globais/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/globais/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/filters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/migrations/0002_auto_20190320_1324.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/migrations/0003_auto_20190320_1402.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/migrations/0004_auto_20190507_0856.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/templates/materiais/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/templates/materiais/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/templates/materiais/pedido/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/templates/materiais/pedido/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/templates/materiais/pedido/pedidoweb_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/templates/materiais/pedido/pedidoweb_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/templates/materiais/pedido/pedidoweb_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/templates/materiais/pedido/pedidoweb_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/templates/materiais/produto/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/templates/materiais/produto/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/templates/materiais/produto/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/templates/materiais/produto/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/templates/materiais/search_pedidoweb/pedidoweb_filter_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/templates/materiais/search_pedidoweb/pedidoweb_filter_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usesoft_R3/settings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/usesoft_R3/settings.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usesoft_R3/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/usesoft_R3/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendas/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/vendas/migrations/0001_initial.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
