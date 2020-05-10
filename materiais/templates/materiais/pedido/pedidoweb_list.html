@@ -67,7 +67,7 @@
                         <div class="card-body">
                             <h5 class="card-title"><strong>Pedido</strong> #{{ pedidoweb.id }} com
                                 <span class="badge badge-warning">{{pedidoweb.items.count}}  ite{{pedidoweb.items.count|pluralize:"m,ns"}}</span></h5>
-                            <h5 class="card-title"><strong>Vendedor</strong> {{ pedidoweb.vendedor }}</h5>
+                            <h5 class="card-title"><strong>Vendedor:</strong> {{ pedidoweb.vendedor }}</h5>
                             <h5 class="card-title"><strong>Data do Pedido: </strong>{{pedidoweb.data_pedido}}</h5>
                             <p class="card-text"><strong>Cliente: </strong> {{ pedidoweb.participante }}</p>
                             <p class="card-text"><strong>Forma de Pagamento:</strong> {{ pedidoweb.tipo_de_pagamento }}</p>

@@ -100,18 +100,12 @@
                         </div>
                     {% endif %}
 
-
-
-
-
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
 
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent" align="right">
-
-
 
                         <ul class="nav navbar-nav ml-auto">
 
@@ -131,7 +125,7 @@
                                                     <a href="{% url 'cart:cart_detail' %}">
                                                         <i class="fas fa-shopping-cart fa-3x"></i>
                                                         <span class="badge badge-pill badge-warning">
-                                                            {{total_items}} item{{ total_items|localize|pluralize }}, R$ {{ cart.get_total_price|floatformat:2 }}
+                                                            {{total_items}} ite{{ total_items|pluralize:"m,ns" }}, R$ {{ cart.get_total_price|floatformat:2 }}
                                                         </span>
                                                     </a>
 
