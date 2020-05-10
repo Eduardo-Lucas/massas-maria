@@ -76,9 +76,6 @@ INSTALLED_APPS = [
 
 ]
 
-
-IMPORT_EXPORT_USE_TRANSACTIONS = True
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -116,41 +113,35 @@ WSGI_APPLICATION = 'usesoft_R3.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+if DEBUG:
+    DATABASES = {
+       'default': {
+           # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+           # 'ENGINE': 'tenant_schemas.postgresql_backend',
 
-# DATABASES = {
-#    'default': {
-#        # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        # 'ENGINE': 'tenant_schemas.postgresql_backend',
-#
-#        # Or path to database file if using sqlite3.
-#        'NAME': config('DB_NAME'),
-#        'USER': config('DB_USER'),
-#        'PASSWORD': config('DB_PASSWORD'),
-#
-#        # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-#        'HOST': '',
-#
-#        # Set to empty string for default
-#        'PORT': '',
-#    }
-# }
+           # Or path to database file if using sqlite3.
+           'NAME': config('DB_NAME'),
+           'USER': config('DB_USER'),
+           'PASSWORD': config('DB_PASSWORD'),
 
+           # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+           'HOST': '',
 
-# Never deploy a site into production with DEBUG turned on.
-# Did you catch that? NEVER deploy a site into production with DEBUG turned on.
-# Default: False
-DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
-}
+           # Set to empty string for default
+           'PORT': '',
+       }
+    }
+else:
+
+    # Never deploy a site into production with DEBUG turned on.
+    # Did you catch that? NEVER deploy a site into production with DEBUG turned on.
+    # Default: False
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=config('DATABASE_URL')
+        )
+    }
 
 
 # Password validation
@@ -254,5 +245,4 @@ STATIC_URL = '/static/'
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
-# django.heroku.settings(locals())
-
+IMPORT_EXPORT_USE_TRANSACTIONS = True
