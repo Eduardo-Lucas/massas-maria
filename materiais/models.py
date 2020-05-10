@@ -42,7 +42,7 @@ class PedidoTipo (models.Model):
 
     # lembrar que este tipo de operação fiscal deverá estar configurado no tipo de movimento de entrada ou saida
     # venda uso e consumo, transferência, ativo
-    tipooperacaofiscal = models.ForeignKey(TipoOperacaoFiscal, on_delete=models.CASCADE,
+    tipooperacaofiscal = models.ForeignKey(TipoOperacaoFiscal, on_delete=models.CASCADE, null=True, blank=True,
                                            help_text='Tipo de movimento fiscal nesta operação conforme tipo de CFOP - '
                                                      'TT para todas as operações fiscais')
 
@@ -70,19 +70,19 @@ class PedidoTipo (models.Model):
                                                          'momento da operação')
 
     # Mensagem padrao a ser levada com observações na emissão do pedido e/ou como observações adicionais na NF
-    mensagem_padrao = models.ForeignKey(MensagemPadrao,
+    mensagem_padrao = models.ForeignKey(MensagemPadrao, null=True, blank=True,
                                         on_delete=models.CASCADE, help_text='Mensagem padrao a ser levada com '
                                                                             'observações na emissão do pedido e/ou '
                                                                             'como observações adicionais na NF')
 
     # Natureza de custos deste tipo de operação de venda ou para qual conta de custos sistema irá
-    natureza_custos = models.ForeignKey(NaturezaCusto, default=1, on_delete=models.CASCADE)
+    natureza_custos = models.ForeignKey(NaturezaCusto, null=True, blank=True, on_delete=models.CASCADE)
 
     # Centro de custos deste tipo de operação de venda ou para qual conta de custos sistema irá
-    centro_custo = models.ForeignKey(CentroCusto, default=1, on_delete=models.CASCADE)
+    centro_custo = models.ForeignKey(CentroCusto, null=True, blank=True, on_delete=models.CASCADE)
 
     # Informe o Cfop para esta operação caso queira que sistema leve cfop para itens da NFe
-    cfop = models.ForeignKey(Cfop, on_delete=models.CASCADE)
+    cfop = models.ForeignKey(Cfop, null=True, blank=True, on_delete=models.CASCADE)
 
     # Permite informar orçamentos somente com cabeçalho ou com quantidade zerada nos produtos
     quantidade_zero = models.CharField("Permite produtos com quantidade zero?", max_length=1, null=False,  default="N",
@@ -101,14 +101,14 @@ class PedidoTipo (models.Model):
                                                ' de negócio')
 
     # Tipo de pagamento deste pedido
-    tipo_de_pagamento = models.ForeignKey(TipoPagamento, on_delete=models.CASCADE, default=1,
+    tipo_de_pagamento = models.ForeignKey(TipoPagamento, on_delete=models.CASCADE, null=True, blank=True,
                                           related_name='tipopagamentoTipo')
 
     # Prazo para pagamento deste pedido
-    prazo_de_pagamento = models.ForeignKey(PrazoPagamento, on_delete=models.CASCADE)
+    prazo_de_pagamento = models.ForeignKey(PrazoPagamento, null=True, blank=True, on_delete=models.CASCADE)
 
     # Tipo de entrega Ex: 1 Cliente Compra produtos e leva/Transporta da Loja
-    tipo_entrega = models.CharField("Pedido é uma transferencia?", max_length=1, null=False, default="1",
+    tipo_entrega = models.CharField("Pedido é uma transferencia?", max_length=1, null=False, blank=True, default="1",
                                     choices=TIPO_ENTREGA_CHOICES,
                                     help_text='Tipo de entrega Ex: 1 Cliente Compra produtos e leva/Transporta da Loja')
 
@@ -586,7 +586,7 @@ class Marca(models.Model):
 # ----------------------------------------------------------------------------------------------------------------------
 class Produto(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    disponivel = models.CharField("Item Disponível?", max_length=1, choices=SIM_NAO_CHOICES, default='S')
+    disponivel = models.BooleanField(default=True)
     # produto = models.CharField("Código do produto", max_length=13, null=False, unique=True,
     #                           help_text='Código da mercadoria/ produto para produção ou venda')
 
@@ -625,7 +625,8 @@ class Produto(models.Model):
     codigo_nbs = models.IntegerField(blank=True, null=True, default=0)
 
     # marca do produto
-    marca = models.ForeignKey(Marca, on_delete=models.CASCADE, related_name='marcas')
+    marca = models.ForeignKey(Marca, on_delete=models.CASCADE, related_name='marcas',
+                              null=True, blank=True)
 
     # Código do grupo deste produto para efeito de classificação interna
     # TODO Depois excluir a opção null=True
@@ -732,6 +733,14 @@ class Produto(models.Model):
         verbose_name = 'Produto'
         verbose_name_plural = 'Produtos'
         index_together = (('id', 'slug'),)
+
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = 'img/no_image.png'
+        return url
 
     def __str__(self):
         return self.produto + " - " + self.descricao
@@ -2023,10 +2032,9 @@ class Loja(models.Model):
     
     def __str__(self):
         if self.bairro:
-            return self.endereco + ', ' + self.numero + ' - ' + self.bairro + ' - ' + self.cidade + ' - ' + \
-                   str(self.uf)
+            return self.nome + ' - ' + self.endereco + ', ' + self.numero + ' - ' + self.bairro + ' - ' + self.cidade
         else:
-            return self.endereco + ', ' + self.numero + ' - ' + self.cidade + ' - ' + str(self.uf)
+            return self.nome + ' - ' + self.endereco + ', ' + self.numero + ' - ' + self.cidade + ' - ' + str(self.uf)
     
     def local(self):
         return self.nome
@@ -2119,7 +2127,7 @@ class PedidoWeb(models.Model):
     prazo_de_pagamento = models.ForeignKey(PrazoPagamento, on_delete=models.CASCADE, default=1)
 
     # Código do participante (Cliente Web) nesta operação fiscal
-    participante = models.ForeignKey(User, on_delete=models.CASCADE, related_name='cliente')
+    participante = models.ForeignKey(Participante, on_delete=models.CASCADE)
     # participante = models.ForeignKey(Participante, on_delete=models.CASCADE, related_name='clienteWeb')
 
     # vendedor responsável pela venda ou comprador
@@ -2433,8 +2441,8 @@ class PedidoWebItem(models.Model):
                                                     'efeito de cálculo de saldos (Codigo+data)')
     # Código do participante (Cliente ou fornecedor) nesta operação fiscal -
     # participante+data) (data+participante) (participante+codigo) (codigo+participante)- relatórios extratos
-    participante = models.ForeignKey(User, on_delete=models.CASCADE, related_name='clienteItem',
-                                     blank=True, null=True)
+    # participante = models.ForeignKey(User, on_delete=models.CASCADE, related_name='clienteItem',
+    #                                  blank=True, null=True)
     # participante = models.ForeignKey(Participante, on_delete=models.CASCADE, related_name='fornecedoresWeb',
     #                                  blank=True, null=True, help_text='Código do Participante')
 

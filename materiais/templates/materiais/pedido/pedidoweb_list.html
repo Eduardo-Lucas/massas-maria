@@ -10,9 +10,7 @@
             <div class="card-body">
                 <h5 style="margin-center"><strong>Lista de Pedidos Web</strong></h5>
             </div>
-            <div class="card-footer">
-            <button class="btn btn-outline-success btn-block" data-toggle="tooltip" data-placement="top" title="Criar Novo Pedido"><a href="{% url 'materiais:order_create' %}"> Criar Pedido <i class="fas fa-plus"></i> </a></button>
-            </div>
+
         </div>
 
         <div class="card bg-light">
@@ -67,8 +65,11 @@
                 <div class="col-sm-4">
                     <div class="card border-dark mb-3" style="background-color: #eee;">
                         <div class="card-body">
-                            <h5 class="card-title"><strong>Pedido</strong> #{{ pedidoweb.id }} emitido por {{ pedidoweb.vendedor }} em {{pedidoweb.data_pedido}}</h5>
-                            <p class="card-text"><strong>Cliente:</strong> {{ pedidoweb.participante }}</p>
+                            <h5 class="card-title"><strong>Pedido</strong> #{{ pedidoweb.id }} com
+                                <span class="badge badge-warning">{{pedidoweb.items.count}}  ite{{pedidoweb.items.count|pluralize:"m,ns"}}</span></h5>
+                            <h5 class="card-title"><strong>Vendedor</strong> {{ pedidoweb.vendedor }}</h5>
+                            <h5 class="card-title"><strong>Data do Pedido: </strong>{{pedidoweb.data_pedido}}</h5>
+                            <p class="card-text"><strong>Cliente: </strong> {{ pedidoweb.participante }}</p>
                             <p class="card-text"><strong>Forma de Pagamento:</strong> {{ pedidoweb.tipo_de_pagamento }}</p>
                             <p class="card-text"><strong>Prazo:</strong> {{ pedidoweb.prazo_de_pagamento }}</p>
                             <p class="card-text"><strong>Total do Pedido:</strong> {{ pedidoweb.total_preco_liquido|floatformat:2 }}</p>
@@ -76,15 +77,20 @@
 
                             <!-- Detalhes -->
                             <a href="{% url 'materiais:pedidoweb_detail' pedidoweb.id %}"
-                                class="btn btn-outline-primary btn-lg" role="button" data-toggle="tooltip" data-placement="top"
+                                class="btn btn-outline-primary btn-sm" role="button" data-toggle="tooltip" data-placement="top"
                                 title="Exibe detalhes do pedido">
                                 <i class="fas fa-info-circle"></i> Detalhes
                             </a>
 
                             <!-- Deleta -->
                             <a href="{% url 'materiais:pedidoweb_delete' pedidoweb.id %}"
-                                class="btn btn-outline-primary btn-lg" role="button" data-toggle="tooltip" data-placement="top" title="Apaga o Pedido">
+                                class="btn btn-outline-primary btn-sm" role="button" data-toggle="tooltip" data-placement="top" title="Apaga o Pedido">
                                 <i class="fas fa-trash-alt"></i> Apaga
+                            </a>
+                            <!-- Gera csv -->
+                            <a href="{% url 'materiais:exporta_pedido_csv' pedidoweb.id %}"
+                                class="btn btn-outline-primary btn-sm" role="button" data-toggle="tooltip" data-placement="top" title="Gera arquivo csv">
+                                 csv
                             </a>
                         </div>
                     </div>

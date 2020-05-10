@@ -5,7 +5,8 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from .views import PedidoWebTradicionalList, PedidoWebTradicionalDetalhe, \
     PedidoWebTradicionalUpdate, ProdutoDetalhe, ProdutoCreate, ProdutoList, manage_pedidowebitem, PedidoWebDelete, \
     PedidoWebItemDelete, PedidoWebItemUpdate, pedidowebitemcreate, search_pedidoweb, order_create, order_update, \
-    produto_detail, expedicao, inicia_separacao, finaliza_separacao, estorna_separacao, AlteraLojaUpdate
+    produto_detail, expedicao, inicia_separacao, finaliza_separacao, estorna_separacao, AlteraLojaUpdate, \
+    exporta_pedido_csv
 
 app_name = 'materiais'
 
@@ -45,7 +46,7 @@ urlpatterns = [
     path('', ProdutoList.as_view(), name='home'),
 
     # Search PedidoWeb
-    url(r'^search_pedidoweb/$', search_pedidoweb, name='search_pedidoweb'),
+    path('search_pedidoweb/', search_pedidoweb, name='search_pedidoweb'),
     
     path('expedicao/', expedicao, name='expedicao'),
     path('inicia_separacao/(<id>[0-9]+)/', inicia_separacao, name='inicia_separacao'),
@@ -53,9 +54,9 @@ urlpatterns = [
     path('estorna_separacao/(<id>[0-9]+)/', estorna_separacao, name='estorna_separacao'),
     path('altera_loja/(<pk>[0-9]+)/', AlteraLojaUpdate.as_view(), name='altera_loja'),
 
-
-
+    path('exporta/pedido/csv/<id>', exporta_pedido_csv, name='exporta_pedido_csv'),
 ]
+
 
 urlpatterns = format_suffix_patterns(urlpatterns)
 

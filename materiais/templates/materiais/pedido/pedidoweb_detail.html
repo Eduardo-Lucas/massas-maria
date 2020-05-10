@@ -25,12 +25,12 @@
         <li>Observações: <strong>{{ pedidoweb.observacoes }}</strong></li>
     </ul>
 
-    <div align="right">
+    <!--<div align="right">
     <a href="{% url 'materiais:adiciona_item_pedido' pedidoweb.id  %}"
         class="btn btn-outline-warning btn-sm" role="button" data-toggle="tooltip" data-placement="top" title="Adiciona um Item">
         <i class="fas fa-plus-square"></i> Adiciona um item
     </a>
-    </div>
+    </div>-->
 
     {% if pedidoweb.items.all %}
         <table class="responsive table table-responsive table-condensed table-bordered table-hover table-striped table-dark">

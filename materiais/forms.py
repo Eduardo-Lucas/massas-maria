@@ -11,7 +11,7 @@ from .models import PedidoWeb, PedidoWebItem
 class OrderCreateForm(ModelForm):
     class Meta:
         model = PedidoWeb
-        fields = ['tipo_pedido', 'loja', 'tipo_de_pagamento', 'prazo_de_pagamento']
+        fields = ['participante', 'tipo_pedido', 'loja', 'tipo_de_pagamento', 'prazo_de_pagamento']
         # fields = ['tipo_de_pagamento', 'prazo_de_pagamento']
         # fields = ['id', 'vendedor', 'participante', 'tipo_de_pagamento', 'prazo_de_pagamento', 'observacoes']
         

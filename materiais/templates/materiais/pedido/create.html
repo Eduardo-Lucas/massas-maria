@@ -25,11 +25,11 @@
                 <form action="." method="post" class="order-form">
                         {% csrf_token %}
 
-                        <!--{% if request.user|has_group:"Vendedores" %}
-                            <h6 class="card-text">Vendedor: {{ form.vendedor }}</h6>
+<!--                        {% if request.user|has_group:"Vendedores" %}-->
+                            <!--<h6 class="card-text">Vendedor: {{ form.vendedor }}</h6>-->
                             <h6 class="card-text">Cliente: <a href="{% url 'faturamento:participante_list' %}"></a> {{ form.participante }}</h6>
-                            <h6 class="card-text"><a href="{% url 'faturamento:participante_add' %}">Criar Novo Cliente</a></h6>
-                        {% endif %}-->
+                            <h6 class="card-text btn btn-outline-warning"><a href="{% url 'faturamento:participante_add' %}">Criar Novo Cliente</a></h6>
+<!--                        {% endif %}-->
 
                         <h6 class="card-text">Tipo de Saída: {{ form.tipo_pedido }}</h6>
                         <h6 class="card-text">Loja     : {{ form.loja }}</h6>
@@ -37,7 +37,7 @@
                         <h6 class="card-text">Prazo de Pagamento: {{ form.prazo_de_pagamento }}</h6>
 
 
-                        <p><input type="submit" value="Gravar Pedido"></p>
+                        <p><input class="btn btn-outline-success" type="submit" value="Gravar Pedido"></p>
                 </form>
                 </div>
             </div>

@@ -2,237 +2,86 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84d38dda-06e7-449d-9da3-e8a9234cf1b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/eduar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/materiais/migrations/0002_remove_pedidowebitem_participante.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/materiais/static/img/massa-1-kg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/materiais/static/img/massa-500g.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/materiais/static/img/no_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/produtos/2020/05/06/massa-1-kg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/produtos/2020/05/06/massa-500g.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/produtos/2020/05/06/nhoque.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/produtos/2020/05/06/no_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/produtos/2020/05/06/no_image_GOX1LKD.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/produtos/2020/05/07/lasanha-1kg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/produtos/2020/05/07/lasanha-400.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/produtos/2020/05/07/massa-disco.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/produtos/2020/05/07/nhoque-400.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/qrcomprar.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/qrcomprar.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contabilidade/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/contabilidade/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faturamento/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/faturamento/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financeiro/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/financeiro/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financeiro/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/financeiro/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fiscal/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/fiscal/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/globais/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/globais/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/filters.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/materiais/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/migrations/0002_auto_20190320_1324.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/migrations/0003_auto_20190320_1402.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/migrations/0004_auto_20190507_0856.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/templates/materiais/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/templates/materiais/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/materiais/templates/materiais/pedido/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/templates/materiais/pedido/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/templates/materiais/pedido/pedidoweb_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/templates/materiais/pedido/pedidoweb_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/templates/materiais/pedido/pedidoweb_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/templates/materiais/pedido/pedidoweb_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/templates/materiais/produto/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/templates/materiais/produto/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/templates/materiais/produto/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/templates/materiais/produto/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/templates/materiais/search_pedidoweb/pedidoweb_filter_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/templates/materiais/search_pedidoweb/pedidoweb_filter_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usesoft_R3/settings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/usesoft_R3/settings.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usesoft_R3/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/usesoft_R3/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendas/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/vendas/migrations/0001_initial.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/usesoft_R3/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
-              <folding>
-                <element signature="e#334#343#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/materiais/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/materiais/templates/materiais/pedido/create.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/materiais/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40440">
-              <caret line="2045" column="85" selection-start-line="2045" selection-start-column="85" selection-end-line="2045" selection-end-column="85" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/materiais/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="131" selection-start-line="131" selection-end-line="131" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>central-aluminio</find>
-      <find>src=</find>
-      <find>&lt;img src=&quot;</find>
-      <find>Vender</find>
-      <find>base.html</find>
-      <find>reset_password</find>
-      <find>marca</find>
-      <find>class C</find>
-      <find>produto_list_by_category</find>
-      <find>class Produto</find>
-      <find>class Produto(</find>
-      <find>OrderCreateForm</find>
-      <find>class PedidoWeb</find>
-      <find>login</find>
-      <find>ProdutoList</find>
-      <find>sidebar</find>
-      <find>inactive</find>
-      <find>form-signin</find>
-      <find>wr</find>
-      <find>create</find>
-    </findStrings>
-    <dirStrings>
-      <dir>C:\Users\HP\DjangoProjects\Dev\qrcomprar</dir>
-      <dir>C:\Users\HP\DjangoProjects\Dev\qrcomprar\qrcomprar</dir>
-      <dir>C:\Users\HP\DjangoProjects\Dev\qrcomprar-project</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/qrcomprar/usesoft_R3/settings.ini" />
-        <option value="$PROJECT_DIR$/qrcomprar/usesoft_R3/settings.py" />
-        <option value="$PROJECT_DIR$/qrcomprar/materiais/templates/materiais/base.html" />
-        <option value="$PROJECT_DIR$/qrcomprar/materiais/admin.py" />
-        <option value="$PROJECT_DIR$/qrcomprar/cart/templates/cart/detail.html" />
-        <option value="$PROJECT_DIR$/qrcomprar/materiais/models.py" />
-        <option value="$PROJECT_DIR$/qrcomprar/materiais/templates/materiais/produto/list.html" />
-        <option value="$PROJECT_DIR$/qrcomprar/choices/models.py" />
-        <option value="$PROJECT_DIR$/qrcomprar/vendas/models.py" />
-        <option value="$PROJECT_DIR$/qrcomprar/vendas/admin.py" />
-        <option value="$PROJECT_DIR$/qrcomprar/cart/views.py" />
-        <option value="$PROJECT_DIR$/qrcomprar/cart/forms.py" />
-        <option value="$PROJECT_DIR$/qrcomprar/materiais/forms.py" />
-        <option value="$PROJECT_DIR$/qrcomprar/materiais/templates/materiais/produto/detail.html" />
-        <option value="$PROJECT_DIR$/qrcomprar/materiais/urls.py" />
-        <option value="$PROJECT_DIR$/qrcomprar/materiais/views.py" />
-        <option value="$PROJECT_DIR$/materiais/templates/materiais/produto/list.html" />
-        <option value="$PROJECT_DIR$/cart/cart.py" />
-        <option value="$PROJECT_DIR$/cart/forms.py" />
-        <option value="$PROJECT_DIR$/usesoft_R3/Procfile" />
-        <option value="$PROJECT_DIR$/Pipfile" />
-        <option value="$PROJECT_DIR$/wsgi.py" />
-        <option value="$PROJECT_DIR$/Procfile" />
-        <option value="$PROJECT_DIR$/materiais/views.py" />
-        <option value="$PROJECT_DIR$/materiais/urls.py" />
-        <option value="$PROJECT_DIR$/cart/views.py" />
-        <option value="$PROJECT_DIR$/materiais/static/css/base.css" />
-        <option value="$PROJECT_DIR$/materiais/templates/materiais/base.html" />
-        <option value="$PROJECT_DIR$/accounts/forms.py" />
-        <option value="$PROJECT_DIR$/materiais/static/css/style.css" />
-        <option value="$PROJECT_DIR$/cart/templates/cart/detail.html" />
-        <option value="$PROJECT_DIR$/accounts/templates/registration/login.html" />
-        <option value="$PROJECT_DIR$/materiais/templates/materiais/produto/detail.html" />
-        <option value="$PROJECT_DIR$/materiais/models.py" />
-        <option value="$PROJECT_DIR$/materiais/admin.py" />
-        <option value="$PROJECT_DIR$/materiais/templates/materiais/expedicao/expedicao.html" />
-        <option value="$PROJECT_DIR$/materiais/forms.py" />
-        <option value="$PROJECT_DIR$/materiais/templates/materiais/pedido/create.html" />
-        <option value="$PROJECT_DIR$/usesoft_R3/settings.py" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-5" />
-    <option name="y" value="7" />
-    <option name="width" value="684" />
-    <option name="height" value="706" />
-  </component>
+  <component name="ProjectId" id="1bXmesKaRVROCsLNsJwAWoex3Ax" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="qrcomprar-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="qrcomprar-project" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="qrcomprar-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="qrcomprar-project" type="462c0819:PsiDirectoryNode" />
-              <item name="materiais" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="qrcomprar-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="qrcomprar-project" type="462c0819:PsiDirectoryNode" />
-              <item name="materiais" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="qrcomprar-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="qrcomprar-project" type="462c0819:PsiDirectoryNode" />
-              <item name="materiais" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="materiais" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="qrcomprar-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="qrcomprar-project" type="462c0819:PsiDirectoryNode" />
-              <item name="materiais" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="materiais" type="462c0819:PsiDirectoryNode" />
-              <item name="pedido" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="qrcomprar-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="qrcomprar-project" type="462c0819:PsiDirectoryNode" />
-              <item name="usesoft_R3" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../usesoft_R3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../financeiro" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\HP\DjangoProjects\Dev\qrcomprar-project\materiais\static\img" />
-      <recent name="C:\Users\HP\DjangoProjects\Dev\qrcomprar-project" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\eduar\Projetos\DjangoProjects\Dev\vendas\materiais\static\img" />
       <recent name="C:\Users\HP\DjangoProjects\Dev\qrcomprar-project\materiais\static\img" />
       <recent name="C:\Users\HP\DjangoProjects\Dev\qrcomprar-project\materiais\templates\materiais" />
       <recent name="C:\Users\HP\DjangoProjects\Dev\qrcomprar-project" />
       <recent name="C:\Users\HP\DjangoProjects\Dev\qrcomprar\qrcomprar\materiais\static\img" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\DjangoProjects\Dev\qrcomprar-project\materiais\static\img" />
+      <recent name="C:\Users\HP\DjangoProjects\Dev\qrcomprar-project" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -247,298 +96,33 @@
     </task>
     <servers />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25261584" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32991454" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.38566554" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32991454" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2967115" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32991454" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.5699659" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32991454" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout-to-restore>
-  </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/qrcomprar" />
     </ignored-roots>
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/qrcomprar/requirements.txt" />
-    <entry file="file://$PROJECT_DIR$/materiais/templates/materiais/pedido/pedidoweb_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1701">
-          <caret line="81" column="32" selection-start-line="77" selection-start-column="28" selection-end-line="81" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendas/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendas/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cart/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/choices/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/materiais/templates/materiais/produto/produto_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usesoft_R3/Procfile" />
-    <entry file="file://$PROJECT_DIR$/usesoft_R3/wsgi.py" />
-    <entry file="file://$USER_HOME$/.virtualenvs/qrcomprar-project-OG2MPxS_/Lib/site-packages/django_filters/filters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Pipfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Pipfile.lock">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-960">
-          <caret line="30" column="35" lean-forward="true" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wsgi.py" />
-    <entry file="file://$PROJECT_DIR$/Procfile" />
-    <entry file="file://$PROJECT_DIR$/usesoft_R3/settings.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/materiais/templates/materiais/produto/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
-          <caret line="72" column="94" selection-start-line="72" selection-start-column="28" selection-end-line="72" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cart/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usesoft_R3/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/materiais/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cart/cart.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1980">
-          <caret line="103" column="63" selection-start-line="103" selection-start-column="63" selection-end-line="103" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cart/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/materiais/static/css/base.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/templates/registration/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/materiais/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1340">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/materiais/templates/materiais/expedicao/expedicao.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2980">
-          <caret line="149" column="57" selection-start-line="149" selection-start-column="57" selection-end-line="149" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/materiais/templates/materiais/produto/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cart/templates/cart/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/materiais/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4860">
-          <caret line="243" column="33" selection-start-line="243" selection-start-column="33" selection-end-line="243" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/materiais/templates/materiais/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/materiais/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40440">
-          <caret line="2045" column="85" selection-start-line="2045" selection-start-column="85" selection-end-line="2045" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/materiais/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="131" selection-start-line="131" selection-end-line="131" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/materiais/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/materiais/templates/materiais/pedido/create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usesoft_R3/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
-          <folding>
-            <element signature="e#334#343#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  <component name="WindowStateProjectService">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1588963457229">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1588963457229" />
+    <state x="184" y="9" key="SettingsEditor" timestamp="1589122280388">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1589122280388" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1589123270614">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1589123270614" />
+    <state x="492" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589123285956">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="492" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1589123285956" />
+    <state x="390" y="99" width="585" height="530" key="find.popup" timestamp="1588796129789">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="390" y="99" width="585" height="530" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1588796129789" />
   </component>
 </project>

@@ -31,9 +31,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['qrcomprar.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['massas-maria.herokuapp.com', '127.0.0.1']
 
 
 LOGIN_URL = 'login'
@@ -117,34 +117,34 @@ WSGI_APPLICATION = 'usesoft_R3.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 
-# DATABASES = {
-#    'default': {
-#        # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        # 'ENGINE': 'tenant_schemas.postgresql_backend',
-#
-#        # Or path to database file if using sqlite3.
-#        'NAME': config('DB_NAME'),
-#        'USER': config('DB_USER'),
-#        'PASSWORD': config('DB_PASSWORD'),
-#
-#        # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-#        'HOST': '',
-#
-#        # Set to empty string for default
-#        'PORT': '',
-#    }
-# }
+DATABASES = {
+   'default': {
+       # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+       # 'ENGINE': 'tenant_schemas.postgresql_backend',
+
+       # Or path to database file if using sqlite3.
+       'NAME': config('DB_NAME'),
+       'USER': config('DB_USER'),
+       'PASSWORD': config('DB_PASSWORD'),
+
+       # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+       'HOST': '',
+
+       # Set to empty string for default
+       'PORT': '',
+   }
+}
 
 
 # Never deploy a site into production with DEBUG turned on.
 # Did you catch that? NEVER deploy a site into production with DEBUG turned on.
 # Default: False
-DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
-}
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=config('DATABASE_URL')
+#     )
+# }
 
 
 # Password validation
@@ -241,14 +241,8 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-# STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static")
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
-)
 
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

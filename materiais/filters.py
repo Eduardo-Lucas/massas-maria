@@ -7,7 +7,7 @@ class PedidoWebFilter(django_filters.FilterSet):
     
     class Meta:
         model = PedidoWeb
-        fields = ['status_pedido', 'participante', 'tipo_de_pagamento', 'prazo_de_pagamento', 'vendedor', ]
+        fields = ['loja', 'data_pedido', 'status_pedido', 'participante', 'tipo_de_pagamento', 'prazo_de_pagamento', 'vendedor', ]
         
 
 class ProdutoFilter(django_filters.FilterSet):

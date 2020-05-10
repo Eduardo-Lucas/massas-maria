@@ -66,11 +66,11 @@
 <div class="container">
         <div class="row">
             {% for produto in produtos %}
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <div class="card border-dark mb-3" style="background-color: #eee;">
 
                         <a href="{{ produto.get_absolute_url }}">
-                            <img src="{{ produto.image.url }}" class="card-img-top" alt="...">
+                            <img src="{{ produto.imageURL }}" class="img-responsive card-img-top" alt="...">
                         </a>
 
                         <div class="card-body">
@@ -86,16 +86,17 @@
 
                             <a href="{{ produto.get_absolute_url }}">
                                 <h5 class="card-subtitle mb-2 text-center">{{ produto.descricao }}</h5>
-                                <p class="card-text text-center" >{{ produto.marca }}</p>
-                                <p class="card-text text-center" ><strong>{{ produto.quantidade }}</strong></p>
                                 <p class="card-text text-center  text-danger" ><strong>Preço: {{ produto.preco_venda }}</strong></p>
                             </a>
 
 <!--
                                 <a href="{{ produto.get_absolute_url }}"><p>{% qr_from_text produto.get_absolute_url size="S" %}</p></a>
 -->
-
+                            {% if produto.disponivel %}
                             <a href="{{ produto.get_absolute_url }}" class="btn btn-outline-success btn-block">adicionar ao <i class="fas fa-shopping-cart"></i></a>
+                            {% else %}
+                               <h6>Ops! Já vendemos todo o estoque</h6>
+                            {% endif %}
                             <!--<a href="{% url 'materiais:produto_detalhe' produto.id %}" class="btn btn-outline-primary btn-sm"><i class="fas fa-info-circle"></i> Detalhes</a>-->
                         </div>
                     </div>

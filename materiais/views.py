@@ -1,9 +1,12 @@
+import csv
+
 import requests
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.forms import formset_factory
 from django.urls import reverse_lazy
@@ -14,7 +17,7 @@ from cart.cart import Cart
 from cart.forms import CartAddProductForm
 from faturamento.models import Participante
 from materiais.filters import PedidoWebFilter
-from .models import Produto, PedidoWeb, PedidoWebItem
+from .models import Produto, PedidoWeb, PedidoWebItem, Loja
 from .forms import OrderUpdateForm, OrderCreateForm, PedidoWebForm, PedidoWebItemForm
 
 
@@ -48,7 +51,7 @@ class ProdutoList(SuccessMessageMixin, ListView):
                 Q(categoria__nome__icontains=valor)
             )
         else:
-            object_list = self.model.objects.filter(disponivel='S')
+            object_list = self.model.objects.all()
 
         paginator = Paginator(object_list, 12)  # Show 12 produtos per page
 
@@ -70,7 +73,7 @@ class ProdutoList(SuccessMessageMixin, ListView):
 # def produto_list(request, categoria_slug=None):
 #     categoria = None
 #     categorias = Categoria.objects.all()
-#     produtos = Produto.objects.filter(disponivel='S')
+#     produtos = Produto.objects.filter(disponivel=True)
 #     page = request.GET.get('page', 1)
 #
 #     paginator = Paginator(produtos, 10)
@@ -91,13 +94,13 @@ class ProdutoList(SuccessMessageMixin, ListView):
 
 
 def produto_detail(request, id=None, slug=None):
-    produto = get_object_or_404(Produto, id=id, slug=slug, disponivel='S')
+    produto = get_object_or_404(Produto, id=id, slug=slug)
     cart_produto_form = CartAddProductForm(initial={'preco_negociado': produto.preco_venda})
     return render(request, 'materiais/produto/detail.html', {'produto': produto,
                                                              'cart_produto_form': cart_produto_form})
 
 # def produto_detail(request, id=None, slug=None):
-#     produto = get_object_or_404(Produto, id=id, slug=slug, disponivel='S')
+#     produto = get_object_or_404(Produto, id=id, slug=slug, disponivel=True)
 #     cart_produto_form = CartAddProductForm(initial={'preco_negociado': produto.preco_venda})
 #     return render(request, 'materiais/produto/detail.html', {'produto': produto,
 #                                                              'cart_produto_form': cart_produto_form})
@@ -121,9 +124,7 @@ def order_create(request):
             pedidoweb = form.save(commit=False)
             
             pedidoweb.vendedor = request.user
-            
-            pedidoweb.participante = request.user
-            
+
             pedidoweb.total_produtos = cart.get_total_price()
             pedidoweb.save()
 
@@ -158,7 +159,7 @@ def order_create(request):
                                              perc_desc=item['perc_desc'],
                                              custo_informado=item['custo_informado'],
                                              data_movimento=item['data_movimento'],
-                                             participante=pedidoweb.participante,
+                                             # participante=pedidoweb.participante,
                                              total_produto=item['total_produto'],
                                              modalidade_ipi=item['modalidade_ipi'],
                                              situacao_tributaria_ipi=item['situacao_tributaria_ipi'],
@@ -531,3 +532,17 @@ def checkout(request):
     session_id = requests.post(url, params=credenciais)
     
     return render(request, 'materiais/checkout/checkout.html', {'session_id': session_id})
+
+
+def exporta_pedido_csv(request, id=0):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="pedido.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['Numero', 'Data do Pedido', 'Cliente', 'vendedor'])
+
+    pedidos = PedidoWeb.objects.filter(id=id).values_list('id', 'data_pedido', 'participante', 'vendedor')
+    for pedido in pedidos:
+        writer.writerow(pedido)
+
+    return response

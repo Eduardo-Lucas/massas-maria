@@ -192,7 +192,7 @@ class TipoPagamento(models.Model):
                                                          'este pagamento')
 
     # tipo de documento será gerado para este tipo de venda
-    tipo_documento = models.ForeignKey(TipoDocumento, on_delete=models.CASCADE)
+    tipo_documento = models.ForeignKey(TipoDocumento, null=True, blank=True, on_delete=models.CASCADE)
 
     # Valor mínimo para este tipo de pagamento reverse
     valor_minimo = models.DecimalField("Valor mínimo para venda", max_length=16, max_digits=16, decimal_places=2,
