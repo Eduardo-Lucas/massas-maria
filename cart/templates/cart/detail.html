@@ -21,13 +21,13 @@
 
         <h6><i class="fas fa-arrow-alt-circle-down"></i> Itens no carrinho de compras <i class="fas fa-arrow-alt-circle-down"></i></h6>
 
-        <div class="container-fluid">
+        <div class="container">
             {% for item in cart %}
                 {% with produto=item.product %}
 
-                     <div class="col-sm-4">
+                     <div class="col-md-4">
                           <div class="card border-success mb-3" style="background-color: #eee;">
-                              <img src="{% if produto.image %}{{ produto.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
+                              <img class="img-fluid" src="{% if produto.image %}{{ produto.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
                                <div class="card-body">
                                    <p class="card-text">{{ produto.descricao|capfirst }}</p>
                                    <p class="card-text">
@@ -51,10 +51,6 @@
                                </div>
                           </div>
                      </div>
-
-
-
-
 
                 {% endwith %}
             {% endfor %}

@@ -50,7 +50,7 @@
             {% with produto=item.product %}
                 <div class="col-sm-4">
                     <div class="card border-warning mb-3" style="background-color: #eee;">
-                        <img src="{% if produto.image %}{{ produto.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
+                        <img class="img-fluid" src="{% if produto.image %}{{ produto.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
                         <div class="card-body">
                             <h5 class="card-title">{{item.codigo}}-{{ item.descricao }}</h5>
                             <h5 class="card-text"> Total do Item: {{ item.total_price|floatformat:2 }}</h5>
