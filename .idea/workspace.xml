@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84d38dda-06e7-449d-9da3-e8a9234cf1b9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/eduar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/eduar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/resources.py" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/resources.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/templates/materiais/pedido/pedidoweb_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/templates/materiais/pedido/pedidoweb_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materiais/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usesoft_R3/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/usesoft_R3/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/templates/materiais/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/templates/materiais/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
