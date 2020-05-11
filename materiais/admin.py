@@ -26,14 +26,24 @@ class OrderItemInline(admin.TabularInline):
     extra = 0
 
 
-class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'participante', 'tipo_de_pagamento', 'prazo_de_pagamento']
-    list_filter = ['participante', 'tipo_de_pagamento', 'prazo_de_pagamento', 'created', 'updated']
-    inlines = [OrderItemInline]
-
-
-admin.site.register(PedidoWeb, OrderAdmin)
+# class OrderAdmin(admin.ModelAdmin):
+#     list_display = ['id', 'participante', 'tipo_de_pagamento', 'prazo_de_pagamento']
+#     list_filter = ['participante', 'tipo_de_pagamento', 'prazo_de_pagamento', 'created', 'updated']
+#     inlines = [OrderItemInline]
+#
+#
+# admin.site.register(PedidoWeb, OrderAdmin)
 admin.site.register(ProdutoDepartamento)
+
+
+@admin.register(PedidoWeb)
+class PedidoWebResource(ImportExportModelAdmin):
+    pass
+
+
+@admin.register(PedidoWebItem)
+class PedidoWebItemResource(ImportExportModelAdmin):
+    pass
 
 
 @admin.register(Categoria)

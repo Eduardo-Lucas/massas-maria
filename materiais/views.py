@@ -19,6 +19,7 @@ from faturamento.models import Participante
 from materiais.filters import PedidoWebFilter
 from .models import Produto, PedidoWeb, PedidoWebItem, Loja
 from .forms import OrderUpdateForm, OrderCreateForm, PedidoWebForm, PedidoWebItemForm
+from .resources import PedidoWebItemResource, PedidoWebResource
 
 
 def home(request):
@@ -544,5 +545,25 @@ def exporta_pedido_csv(request, id=0):
     pedidos = PedidoWeb.objects.filter(id=id).values_list('id', 'data_pedido', 'participante', 'vendedor')
     for pedido in pedidos:
         writer.writerow(pedido)
+
+    return response
+
+
+def exporta_pedido_excel(request, id=0):
+    pedidoweb_resource = PedidoWebResource()
+    queryset = PedidoWeb.objects.filter(id=id)
+    dataset = pedidoweb_resource.export(queryset)
+    response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="pedidoWeb.xls"'
+
+    return response
+
+
+def exporta_pedidoitem_excel(request, id=0):
+    pedidowebitem_resource = PedidoWebItemResource()
+    queryset = PedidoWebItem.objects.filter(pedidoweb=id)
+    dataset = pedidowebitem_resource.export(queryset)
+    response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="pedidoWebItem.xls"'
 
     return response

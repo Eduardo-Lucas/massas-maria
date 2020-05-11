@@ -2,7 +2,8 @@ from import_export import resources, fields
 from import_export.widgets import ForeignKeyWidget
 
 from globais.models import CodigoNcm, TipoOperacaoFiscal, Uf, SituacaoTribIcms, SituacaoTribPis
-from .models import Produto, Categoria, ProdutoTributacao, PedidoTipo, ProdutoPromocao, Loja
+from .models import Produto, Categoria, ProdutoTributacao, PedidoTipo, ProdutoPromocao, Loja, \
+    PedidoWeb, PedidoWebItem
 
 
 class CategoriaResource(resources.ModelResource):
@@ -81,3 +82,13 @@ class LojaResource(resources.ModelResource):
     class Meta:
         model = Loja
         fields = '__all__'
+
+
+class PedidoWebResource(resources.ModelResource):
+    class Meta:
+        model = PedidoWeb
+
+
+class PedidoWebItemResource(resources.ModelResource):
+    class Meta:
+        model = PedidoWebItem

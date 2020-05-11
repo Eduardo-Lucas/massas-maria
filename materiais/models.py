@@ -2321,8 +2321,8 @@ class PedidoWeb(models.Model):
 
     class Meta:
         ordering = ['-id']
-        verbose_name = 'Cadastro de Pedido'
-        verbose_name_plural = 'Cadastro de Pedidos'
+        verbose_name = 'Pedido'
+        verbose_name_plural = 'Pedidos'
         index_together = [
             ['participante', 'data_movimento'],
             ['data_movimento', 'notafiscal'],
@@ -2603,7 +2603,7 @@ class PedidoWebItem(models.Model):
         return reverse('materiais:edita_item_pedido', kwargs={'pk': self.pk})
         
     def __str__(self):
-        return str(self.pedidoweb)
+        return 'Pedido: '+str(self.pedidoweb)+' Produto: '+str(self.produto)
 
     def tot_preco_unitario(self):
         return self.preco_unitario
@@ -2620,10 +2620,10 @@ class PedidoWebItem(models.Model):
         return valor
 
     class Meta:
-        ordering = ['sequencia']
+        ordering = ['-pedidoweb', 'sequencia']
         unique_together = ("pedidoweb", "sequencia", "produto")
-        verbose_name = 'Item de Pedido'
-        verbose_name_plural = 'Itens de Pedidos'
+        verbose_name = 'Pedido Item'
+        verbose_name_plural = 'Pedidos Itens'
 
 
 # ------------------------------------------------------------------------------------------------------------------

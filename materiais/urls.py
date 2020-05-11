@@ -6,7 +6,7 @@ from .views import PedidoWebTradicionalList, PedidoWebTradicionalDetalhe, \
     PedidoWebTradicionalUpdate, ProdutoDetalhe, ProdutoCreate, ProdutoList, manage_pedidowebitem, PedidoWebDelete, \
     PedidoWebItemDelete, PedidoWebItemUpdate, pedidowebitemcreate, search_pedidoweb, order_create, order_update, \
     produto_detail, expedicao, inicia_separacao, finaliza_separacao, estorna_separacao, AlteraLojaUpdate, \
-    exporta_pedido_csv
+    exporta_pedido_csv, exporta_pedido_excel, exporta_pedidoitem_excel
 
 app_name = 'materiais'
 
@@ -54,7 +54,8 @@ urlpatterns = [
     path('estorna_separacao/(<id>[0-9]+)/', estorna_separacao, name='estorna_separacao'),
     path('altera_loja/(<pk>[0-9]+)/', AlteraLojaUpdate.as_view(), name='altera_loja'),
 
-    path('exporta/pedido/csv/<id>', exporta_pedido_csv, name='exporta_pedido_csv'),
+    path('exporta/pedido/excel/<id>', exporta_pedido_excel, name='exporta_pedido_excel'),
+    path('exporta/pedidoitem/excel/<id>', exporta_pedidoitem_excel, name='exporta_pedidoitem_excel'),
 ]
 
 

@@ -87,10 +87,17 @@
                                 class="btn btn-outline-primary btn-sm" role="button" data-toggle="tooltip" data-placement="top" title="Apaga o Pedido">
                                 <i class="fas fa-trash-alt"></i> Apaga
                             </a>
-                            <!-- Gera csv -->
-                            <a href="{% url 'materiais:exporta_pedido_csv' pedidoweb.id %}"
-                                class="btn btn-outline-primary btn-sm" role="button" data-toggle="tooltip" data-placement="top" title="Gera arquivo csv">
-                                 csv
+                            <!-- Gera Excel do Corpo do Pedido -->
+                            <a href="{% url 'materiais:exporta_pedido_excel' pedidoweb.id %}"
+                                class="btn btn-outline-primary btn-sm" role="button" data-toggle="tooltip"
+                               data-placement="top" title="Gera arquivo Excel do Corpo do Pedido">
+                                 Pedido
+                            </a>
+                            <!-- Gera Excel dos Itens do Pedido -->
+                            <a href="{% url 'materiais:exporta_pedidoitem_excel' pedidoweb.id %}"
+                                class="btn btn-outline-primary btn-sm" role="button" data-toggle="tooltip"
+                               data-placement="top" title="Gera arquivo Excel dos Itens do Pedido">
+                                 itens
                             </a>
                         </div>
                     </div>
