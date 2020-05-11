@@ -52,7 +52,8 @@
         <th>Tipo de Pagamento</th>
         <th>Prazo de Pagamento</th>
         <th>Total dos Produtos</th>
-        <th>csv</th>
+        <th>Pedido</th>
+        <th>Itens</th>
       </tr>
     </thead>
     <tbody>
@@ -65,12 +66,20 @@
           <td><a href="{% url 'materiais:pedidoweb_detail' pedido.id %}">{{ pedido.prazo_de_pagamento }}</a></td>
           <td><a href="{% url 'materiais:pedidoweb_detail' pedido.id %}">{{ pedido.total_produtos }}</a></td>
           <td>
-          <!-- Gera csv -->
-            <a href="{% url 'materiais:exporta_pedido_csv' pedido.id %}"
-                class="btn btn-outline-primary btn-sm" role="button" data-toggle="tooltip"
-               data-placement="top" title="Gera arquivo csv">
-                 csv
-            </a>
+                <!-- Gera Excel do Corpo do Pedido -->
+                <a href="{% url 'materiais:exporta_pedido_excel' pedido.id %}"
+                    class="btn btn-outline-primary btn-sm" role="button" data-toggle="tooltip"
+                   data-placement="top" title="Gera arquivo Excel do Corpo do Pedido">
+                     Pedido
+                </a>
+          </td>
+            <td>
+                <!-- Gera Excel dos Itens do Pedido -->
+                <a href="{% url 'materiais:exporta_pedidoitem_excel' pedido.id %}"
+                    class="btn btn-outline-primary btn-sm" role="button" data-toggle="tooltip"
+                   data-placement="top" title="Gera arquivo Excel dos Itens do Pedido">
+                     itens
+                </a>
           </td>
         </tr>
       {% empty %}
