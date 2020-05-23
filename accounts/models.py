@@ -94,10 +94,11 @@ class UserProfile(models.Model):
     SIGNALS
 """
 
+# todo Religar os Signals
 
-def create_profile(sender, **kwargs):
-    if kwargs['created']:
-        user_profile = UserProfile.objects.create(usuario=kwargs['instance'])
-
-
-post_save.connect(create_profile, sender=User)
+# def create_profile(sender, **kwargs):
+#     if kwargs['created']:
+#         user_profile = UserProfile.objects.create(usuario=kwargs['instance'])
+#
+#
+# post_save.connect(create_profile, sender=User)
