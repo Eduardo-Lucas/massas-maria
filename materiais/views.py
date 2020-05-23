@@ -15,7 +15,6 @@ from django.views.generic import CreateView, ListView, DetailView, UpdateView, D
 
 from cart.cart import Cart
 from cart.forms import CartAddProductForm
-from faturamento.models import Participante
 from materiais.filters import PedidoWebFilter
 from .models import Produto, PedidoWeb, PedidoWebItem, Loja
 from .forms import OrderUpdateForm, OrderCreateForm, PedidoWebForm, PedidoWebItemForm

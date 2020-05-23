@@ -27,17 +27,19 @@
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-
-    <!-- Our Custom CSS -->
-<!--
-    <link href="{% static 'css/base.css' %}" rel="stylesheet">
--->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <link href="{% static 'accounts/css/signin.css' %}" rel="stylesheet">
-
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+    <!-- Our Custom CSS -->
+<!--
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/accounts.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+
 
 
 </head>
@@ -49,29 +51,30 @@
         <nav id="sidebar">
             <div class="sidebar-header">
 
-                <strong><a href="{% url 'materiais:home' %}">Use</a></strong>
+                <strong><a href="{% url 'materiais:home' %}">E-Commerce</a></strong>
             </div>
 
             <ul class="list-unstyled components">
+
+
                 <li>
+                    <a href="{% url 'empresas:empresa_list' %}">
+                        Empresas
+                    </a>
+
                     <a href="{% url 'materiais:pedidoweb_list' %}">
-<!--                        <i class="fas fa-home"></i>-->
                             Pedidos
                     </a>
-                    {% if user.groups.all.0.name == "Vendedores" %}
-                        <a href="{% url 'faturamento:participante_list' %}">
-<!--                            <i class="fas fa-briefcase"></i>-->
-                            Clientes
-                        </a>
-                    {% endif %}
+
+                    <a href="{% url 'faturamento:participante_list' %}">
+                        Clientes
+                    </a>
 
                     <a href="{% url 'materiais:produto_list' %}">
-<!--                        <i class="fas fa-copy"></i>-->
                         Produtos
                     </a>
 
                     <a href="{% url 'materiais:expedicao' %}">
-<!--                        <i class="fas fa-copy"></i>-->
                         Expedição
                     </a>
 
@@ -158,21 +161,21 @@
 
             <div class="btn-toolbar justify-content-between mt-0" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group" role="group" aria-label="First group">
-                        <button type="button" class="btn btn-secondary border btn-sm">M</button>
-                        <button type="button" class="btn btn-secondary border btn-sm">A</button>
-                        <button type="button" class="btn btn-secondary border btn-sm">S</button>
-                        <button type="button" class="btn btn-secondary border btn-sm">S</button>
-                        <button type="button" class="btn btn-secondary border btn-sm">A</button>
-                        <button type="button" class="btn btn-secondary border btn-sm">S</button>
-                        <button type="button" class="btn btn-secondary border btn-sm"></button>
-                        <button type="button" class="btn btn-secondary border btn-sm">M</button>
-                        <button type="button" class="btn btn-secondary border btn-sm">A</button>
-                        <button type="button" class="btn btn-secondary border btn-sm">R</button>
-                        <button type="button" class="btn btn-secondary border btn-sm">I</button>
-                        <button type="button" class="btn btn-secondary border btn-sm">A</button>
+                        <button type="button" class="btn btn-info border btn-sm">M</button>
+                        <button type="button" class="btn btn-info border btn-sm">A</button>
+                        <button type="button" class="btn btn-info border btn-sm">S</button>
+                        <button type="button" class="btn btn-info border btn-sm">S</button>
+                        <button type="button" class="btn btn-info border btn-sm">A</button>
+                        <button type="button" class="btn btn-info border btn-sm">S</button>
+                        <button type="button" class="btn btn-info border btn-sm"></button>
+                        <button type="button" class="btn btn-info border btn-sm">M</button>
+                        <button type="button" class="btn btn-info border btn-sm">A</button>
+                        <button type="button" class="btn btn-info border btn-sm">R</button>
+                        <button type="button" class="btn btn-info border btn-sm">I</button>
+                        <button type="button" class="btn btn-info border btn-sm">A</button>
 
                     </div>
-                </div>
+            </div>
 
             </div>
 
@@ -184,11 +187,9 @@
                         {% endfor %}
                     </ul>
                 {% endif %}
+                {% block content %}
+                {% endblock %}
             </div>
-
-            {% block content %}
-
-            {% endblock %}
 
         </div>
     </div>

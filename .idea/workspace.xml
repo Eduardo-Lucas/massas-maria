@@ -2,14 +2,107 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84d38dda-06e7-449d-9da3-e8a9234cf1b9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/accounts/migrations/0002_userprofile_empresa.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/accounts/static/css/accounts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/accounts/static/css/signin.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/contabilidade/migrations/0002_auto_20200515_1132.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/empresas/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/empresas/form.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/empresas/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/empresas/migrations/0002_auto_20200519_1109.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/empresas/migrations/0003_tabelaprecoitem.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/empresas/templates/empresas/empresa_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/empresas/templates/empresas/empresa_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/empresas/templates/empresas/tabelaprecoitem_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/faturamento/migrations/0002_participante_empresa.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/faturamento/migrations/0003_participantetipo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/faturamento/migrations/0004_delete_participantetipo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/faturamento/migrations/0005_auto_20200519_1041.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/faturamento/migrations/0006_auto_20200519_1043.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/faturamento/migrations/0007_auto_20200519_1044.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/faturamento/migrations/0008_auto_20200519_1047.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/faturamento/migrations/0009_auto_20200519_1051.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/faturamento/migrations/0010_auto_20200519_1056.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/faturamento/migrations/0011_auto_20200519_1101.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/faturamento/migrations/0012_auto_20200519_1116.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/faturamento/migrations/0013_auto_20200519_1131.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/faturamento/migrations/0014_auto_20200519_1149.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/faturamento/migrations/0015_auto_20200519_1151.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/faturamento/migrations/0016_auto_20200519_1153.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/faturamento/templates/faturamento/participante/participante_tipo_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/faturamento/templates/faturamento/participante/pedido_novo_por_cliente.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/faturamento/templates/faturamento/participante/pedido_por_cliente.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/materiais/migrations/0003_auto_20200515_1132.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/materiais/migrations/0004_produto_empresa.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/materiais/migrations/0005_auto_20200515_1208.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/materiais/static/css/accounts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/materiais/static/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/materiais/static/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/materiais/static/images/no_image.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/eduar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/eduar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/static/accounts/css/accounts.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/static/accounts/css/signin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/registration/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/templates/registration/logout.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/registration/logout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/choices/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/choices/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compras/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresas/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compras/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresas/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compras/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/compras/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresas/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compras/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/compras/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresas/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compras/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresas/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contabilidade/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/contabilidade/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faturamento/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/faturamento/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faturamento/templates/faturamento/participante/participante_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/faturamento/templates/faturamento/participante/participante_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faturamento/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/faturamento/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faturamento/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/faturamento/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fiscal/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresas/resources.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fiscal/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fiscal/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fiscal/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fiscal/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresas/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fiscal/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fiscal/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fiscal/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/static/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/static/img/MrPretzels.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/static/img/logo-usesoft.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/static/img/massa-1-kg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/static/img/massa-500g.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/static/img/no_image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/static/img/qr_comprar_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/templates/materiais/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/templates/materiais/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materiais/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/materiais/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pcp/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pcp/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pcp/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pcp/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pcp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresas/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pcp/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pcp/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usesoft_R3/settings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/usesoft_R3/settings.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usesoft_R3/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/usesoft_R3/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usesoft_R3/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/usesoft_R3/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -24,21 +117,22 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../financeiro" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/empresas/templates/empresas" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\eduar\Projetos\DjangoProjects\Dev\vendas\materiais\static\img" />
-      <recent name="C:\Users\HP\DjangoProjects\Dev\qrcomprar-project\materiais\static\img" />
-      <recent name="C:\Users\HP\DjangoProjects\Dev\qrcomprar-project\materiais\templates\materiais" />
-      <recent name="C:\Users\HP\DjangoProjects\Dev\qrcomprar-project" />
-      <recent name="C:\Users\HP\DjangoProjects\Dev\qrcomprar\qrcomprar\materiais\static\img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\HP\DjangoProjects\Dev\qrcomprar-project\materiais\static\img" />
       <recent name="C:\Users\HP\DjangoProjects\Dev\qrcomprar-project" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\eduar\Projetos\DjangoProjects\Dev\vendas\empresas\templates\empresas" />
+      <recent name="C:\Users\eduar\Projetos\DjangoProjects\Dev\vendas\faturamento\templates\faturamento\participante" />
+      <recent name="C:\Users\eduar\Projetos\DjangoProjects\Dev\vendas\materiais\static\images" />
+      <recent name="C:\Users\eduar\Projetos\DjangoProjects\Dev\vendas\materiais\static" />
+      <recent name="C:\Users\eduar\Projetos\DjangoProjects\Dev\vendas\accounts\static" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -62,14 +156,22 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
+    <state x="435" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589545821504">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="435" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1589545821504" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1588963457229">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1588963457229" />
-    <state x="184" y="9" key="SettingsEditor" timestamp="1589127696882">
+    <state x="184" y="9" key="SettingsEditor" timestamp="1589891002374">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1589127696882" />
+    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1589891002374" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1589715778222">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1589715778222" />
     <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1589123270614">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -78,9 +180,13 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="492" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1589123285956" />
-    <state x="390" y="99" width="585" height="530" key="find.popup" timestamp="1588796129789">
+    <state x="390" y="99" width="585" height="534" key="find.popup" timestamp="1590187270886">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="390" y="99" width="585" height="530" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1588796129789" />
+    <state x="390" y="99" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1590187270886" />
+    <state x="324" y="90" width="700" height="530" key="recent.locations.popup" timestamp="1589890981182">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="324" y="90" width="700" height="530" key="recent.locations.popup/0.0.1366.728@0.0.1366.728" timestamp="1589890981182" />
   </component>
 </project>

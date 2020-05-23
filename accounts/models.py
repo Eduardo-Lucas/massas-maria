@@ -3,6 +3,8 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.urls import reverse
 
+from empresas.models import Empresa
+
 SIM_NAO_CHOICES = (('S', 'Sim'), ('N', 'Não'))
 
 
@@ -10,6 +12,7 @@ SIM_NAO_CHOICES = (('S', 'Sim'), ('N', 'Não'))
 
 
 class UserProfile(models.Model):
+    empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     nome = models.CharField(max_length=50, default='')
     apelido = models.CharField(max_length=50, default='', null=True, blank=True)
@@ -79,7 +82,7 @@ class UserProfile(models.Model):
         return reverse('acc:userprofile-detail', kwargs={'pk': self.pk})
 
     def __str__(self):
-        return self.nome
+        return 'Perfil de: ' + str(self.usuario) + ' da Empresa: ' + str(self.empresa)
 
     class Meta:
         ordering = ('nome',)

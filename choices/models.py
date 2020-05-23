@@ -360,6 +360,12 @@ PRODUCT_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 101)]
 
 DESCONTO_CHOICES = [(i, str(i)) for i in range(0, 31)]
 
+TIPO_PARTICIPANTE = (
+    ('cliente', 'Cliente'),
+    ('fornecedor', 'Fornecedor'),
+    ('ambos', 'Ambos'),
+    ('transportadora', 'Transportadora'),
+)
 
 def quantidade_maior_que_zero(value):
     if value <= 0:

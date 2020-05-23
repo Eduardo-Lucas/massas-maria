@@ -19,10 +19,11 @@ from choices.models import INDICADOR_PAGAMENTO_CHOICES, STATUS_PEDIDO_ITEM_CHOIC
     INDICA_NFCE_CHOICES, ALTERA_PRECOS_CHOICES, TRANSFERENCIA_CHOICES, TIPO_ENTREGA_CHOICES, ESCOLHE_DESCONTO_CHOICES, \
     MODALIDADE_PAUTA_CHOICES, MOTIVO_DESONERACAO_ICM_CHOICES, MULTIPLICA_DIVIDE_CHOICES, TIPO_CODIGO_CHOICES, \
     quantidade_maior_que_zero
+
 from financeiro.models import NaturezaCusto, CentroCusto, TipoPagamento, PrazoPagamento
 from globais.models import MensagemPadrao, Cfop, SituacaoTribIcms, SituacaoTribPis, SituacaoTribCofins, \
     SituacaoTribIpi, SituacaoDocumentoSped, ModeloDocumentoFiscal, TipoOperacaoFiscal, CodigoNcm, CodigoCest, Uf
-from faturamento.models import Participante, NotaFiscal
+
 
 
 def percentual_maximo_desconto(value):
@@ -585,6 +586,7 @@ class Marca(models.Model):
 # Chaves necessárias (fabricante + descrição) (descrição)
 # ----------------------------------------------------------------------------------------------------------------------
 class Produto(models.Model):
+    empresa = models.ManyToManyField('empresas.Empresa')
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     disponivel = models.BooleanField(default=True)
     # produto = models.CharField("Código do produto", max_length=13, null=False, unique=True,
@@ -739,7 +741,7 @@ class Produto(models.Model):
         try:
             url = self.image.url
         except:
-            url = 'img/no_image.png'
+            url = 'images/no_image.png'
         return url
 
     def __str__(self):
@@ -1039,7 +1041,7 @@ class Pedido(models.Model):
                                          help_text='Código do regime Tributário do emitente ou do fornecedor '
                                                    '1-Simples na 2-Simples exc  3-Normal')
 
-    notafiscal = models.ForeignKey(NotaFiscal, on_delete=models.CASCADE,
+    notafiscal = models.ForeignKey('faturamento.NotaFiscal', on_delete=models.CASCADE,
                                    help_text='Número da nota fiscal emitida para este pedido conforme Número no '
                                              'faturamento da NFe ou NFce')
 
@@ -1091,7 +1093,7 @@ class Pedido(models.Model):
                                            help_text='Informe Prazos para pagamento')
 
     # Código do participante (Cliente ou fornecedor) nesta operação fiscal
-    participante = models.ForeignKey(Participante, on_delete=models.CASCADE, related_name='clientes',
+    participante = models.ForeignKey('faturamento.Participante', on_delete=models.CASCADE, related_name='clientes',
                                      help_text='Código do participante (Cliente ou fornecedor) nesta operação fiscal')
 
     # vendedor responsável pela venda ou comprador
@@ -1199,7 +1201,7 @@ class Pedido(models.Model):
                                          help_text='valor dos serviços se nfe for de serviços')
 
     # valor do frete neste operação fiscal e Código da transportadora
-    transportadora = models.ForeignKey(Participante, on_delete=models.CASCADE, null=True, blank=True,
+    transportadora = models.ForeignKey('faturamento.Participante', on_delete=models.CASCADE, null=True, blank=True,
                                        related_name='transportadoras',
                                        help_text='Código da transportadora nesta operação fiscal')
     valor_frete = models.DecimalField("Valor do FRETE", max_length=16, max_digits=16, decimal_places=2, default=0.00,
@@ -1374,7 +1376,7 @@ class PedidoItem(models.Model):
                                                     'de cálculo de saldos (Codigo+data)')
     # Código do participante (Cliente ou fornecedor) nesta operação fiscal -
     # participante+data) (data+participante) (participante+codigo) (codigo+participante)- relatorios extratos
-    participante = models.ForeignKey(Participante, on_delete=models.CASCADE, related_name='fornecedores',
+    participante = models.ForeignKey('faturamento.Participante', on_delete=models.CASCADE, related_name='fornecedores',
                                      help_text='Código do participante (Cliente ou fornecedor) nesta operação fiscal')
 
     # Total bruto (sem descontos) dos  produtos no pedido
@@ -1542,7 +1544,7 @@ class PedidoNf(models.Model):
                                          help_text='Código do regime Tributário do emitente ou do fornecedor '
                                                    '1-Simples na 2-Simples exc  3-Normal')
 
-    notafiscal = models.ForeignKey(NotaFiscal, on_delete=models.CASCADE,
+    notafiscal = models.ForeignKey('faturamento.NotaFiscal', on_delete=models.CASCADE,
                                    help_text='Número da nota fiscal emitida para este pedido conforme Número no '
                                              'faturamento da NFe ou NFce')
 
@@ -1592,7 +1594,7 @@ class PedidoNf(models.Model):
                                            help_text='Informe Prazos para pagamento')
 
     # Código do participante (Cliente ou fornecedor) nesta operação fiscal
-    participante = models.ForeignKey(Participante, on_delete=models.CASCADE, related_name='clientesNF',
+    participante = models.ForeignKey('faturamento.Participante', on_delete=models.CASCADE, related_name='clientesNF',
                                      help_text='Código do participante (Cliente ou fornecedor) nesta operação fiscal')
 
     # vendedor responsável pela venda ou comprador
@@ -1696,7 +1698,7 @@ class PedidoNf(models.Model):
                                          default=0.00, help_text='valor dos serviços se nfe for de serviços')
 
     # valor do frete neste operação fiscal e Código da transportadora
-    transportadora = models.ForeignKey(Participante, on_delete=models.CASCADE, related_name='transportadorasNF',
+    transportadora = models.ForeignKey('faturamento.Participante', on_delete=models.CASCADE, related_name='transportadorasNF',
                                        help_text='Código da transportadora nesta operação fiscal')
     valor_frete = models.DecimalField("Valor do FRETE", max_length=16, max_digits=16, decimal_places=2, default=0.00,
                                       help_text='Valor do frete na nota fiscal de entrada ou de saida')
@@ -1870,7 +1872,7 @@ class PedidoNfItem(models.Model):
                                                     'efeito de cálculo de saldos (Codigo+data)')
     # Código do participante (Cliente ou fornecedor) nesta operação fiscal -
     # participante+data) (data+participante) (participante+codigo) (codigo+participante)- relatorios extratos
-    participante = models.ForeignKey(Participante, on_delete=models.CASCADE, related_name='fornecedoresNFItem',
+    participante = models.ForeignKey('faturamento.Participante', on_delete=models.CASCADE, related_name='fornecedoresNFItem',
                                      help_text='Código do participante (Cliente ou fornecedor) nesta operação fiscal')
 
     # Total bruto (sem descontos) dos  produtos no pedido
@@ -2073,7 +2075,7 @@ class PedidoWeb(models.Model):
                                          help_text='código do regime tributário do emitente ou do fornecedor '
                                                    '1-Simples na 2-Simples exc  3-Normal')
 
-    notafiscal = models.ForeignKey(NotaFiscal, on_delete=models.CASCADE, null=True, blank=True,
+    notafiscal = models.ForeignKey('faturamento.NotaFiscal', on_delete=models.CASCADE, null=True, blank=True,
                                    help_text='Número da nota fiscal emitida para este pedido conforme Número no '
                                              'faturamento da NFe ou NFce')
 
@@ -2127,8 +2129,8 @@ class PedidoWeb(models.Model):
     prazo_de_pagamento = models.ForeignKey(PrazoPagamento, on_delete=models.CASCADE, default=1)
 
     # Código do participante (Cliente Web) nesta operação fiscal
-    participante = models.ForeignKey(Participante, on_delete=models.CASCADE)
-    # participante = models.ForeignKey(Participante, on_delete=models.CASCADE, related_name='clienteWeb')
+    participante = models.ForeignKey('faturamento.Participante', on_delete=models.CASCADE)
+    # participante = models.ForeignKey('faturamento.Participante', on_delete=models.CASCADE, related_name='clienteWeb')
 
     # vendedor responsável pela venda ou comprador
     vendedor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='vendedor')
@@ -2234,7 +2236,7 @@ class PedidoWeb(models.Model):
                                          help_text='valor dos serviços se nfe for de serviços')
 
     # valor do frete neste operação fiscal e Código da transportadora
-    transportadora = models.ForeignKey(Participante, on_delete=models.CASCADE, null=True, blank=True,
+    transportadora = models.ForeignKey('faturamento.Participante', on_delete=models.CASCADE, null=True, blank=True,
                                        related_name='transportadoraWeb',
                                        help_text='Código da transportadora nesta operação fiscal')
     valor_frete = models.DecimalField("Valor do FRETE", max_length=16, max_digits=16, decimal_places=2, default=0.00,
@@ -2443,8 +2445,9 @@ class PedidoWebItem(models.Model):
     # participante+data) (data+participante) (participante+codigo) (codigo+participante)- relatórios extratos
     # participante = models.ForeignKey(User, on_delete=models.CASCADE, related_name='clienteItem',
     #                                  blank=True, null=True)
-    # participante = models.ForeignKey(Participante, on_delete=models.CASCADE, related_name='fornecedoresWeb',
-    #                                  blank=True, null=True, help_text='Código do Participante')
+    # participante = models.ForeignKey('faturamento.Participante', on_delete=models.CASCADE,
+    # related_name='fornecedoresWeb',
+    # blank=True, null=True, help_text='Código do Participante')
 
     # Total bruto (sem descontos) dos  produtos no pedido
     total_produto = models.DecimalField("Total do Produto", max_length=16, max_digits=16, decimal_places=2,

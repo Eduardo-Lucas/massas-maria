@@ -72,6 +72,7 @@
                                         <p class="card-text">Nome Fantasia: {{ participante.nome_fantasia }} - Tipo: {{ participante.exibe_fisica_juridica }}</p>
                                         <p class="card-text"> <i class="fas fa-phone-square"></i> {{ participante.telefone }} {% if participante.celular %} - <i class="fas fa-mobile-alt"></i> {{ participante.celular }}{%endif%}</p>
                                         <p class="card-text"> <i class="fas fa-map-marker-alt"></i></i> {{ participante.cidade }} - {{ participante.estado }}</p>
+                                        <p class="card-text text-warning font-weight-bold"> <i class="fas fa-map-marker-alt"></i></i> Tabela: {{ participante.tabelapreco }}</p>
 
                                         <!-- Detalhes -->
                                         <a href="{% url 'faturamento:participante_detail' participante.id %}"
@@ -81,6 +82,10 @@
                                         <a href="{% url 'faturamento:participante_edit' participante.id %}"
                                             class="btn btn-outline-primary btn-sm" role="button" >
                                             <i class="fas fa-pencil-alt"></i>Edita
+                                        </a>
+                                        <a href="{% url 'faturamento:pedido_por_cliente' participante.id %}"
+                                            class="btn btn-outline-primary btn-sm" role="button" >
+                                            <i class="fas fa-store"></i> Pedidos
                                         </a>
                                     </div>
                                 </div>

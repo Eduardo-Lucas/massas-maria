@@ -27,6 +27,9 @@ python-decouple = "==3.1"
 gunicorn = "==19.9.0"
 xlwt = "*"
 tablib = "==0.14.0"
+django-crispy-forms = "*"
+django-storages = "*"
+boto3 = "*"
 
 [requires]
 python_version = "3.6"

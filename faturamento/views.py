@@ -11,9 +11,11 @@ from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
+from cart.forms import CartAddProductForm
+from empresas.models import TabelaPrecoItem, TabelaPreco
 from faturamento.models import Participante
-
-
+# from materiais.forms import ParticipanteTipoForm
+from materiais.models import PedidoWeb, Produto
 
 
 class ParticipanteList(SuccessMessageMixin, LoginRequiredMixin, ListView):
@@ -27,7 +29,9 @@ class ParticipanteList(SuccessMessageMixin, LoginRequiredMixin, ListView):
                 Q(razao_social__icontains=valor) |
                 Q(nome_fantasia__icontains=valor) |
                 Q(codigo__contains=valor) |
-                Q(cnpj_cpf__contains=valor)
+                Q(cnpj_cpf__contains=valor) |
+                Q(tabelapreco__descricao__icontains=valor) |
+                Q(cidade__icontains=valor)
             )
         else:
             object_list = self.model.objects.all()
@@ -91,3 +95,46 @@ def participante_delete(request, id=None):
     }
 
     return render(request, 'faturamento/confirm_delete.html', context)
+
+
+# def participante_tipo(request, empresa):
+#     participantes_tipos = Participante.objects.filter(empresa=empresa)
+#     form = ParticipanteTipoForm()
+#
+#     if request.method == 'POST':
+#         form = ParticipanteTipoForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#
+#         return redirect('/')
+#
+#     context = {'participantes_tipos': participantes_tipos, 'form': form}
+#     return render(request, 'faturamento/participante_tipo_list.html', context)
+
+
+def pedido_por_cliente(request, cliente_id):
+    cliente = Participante.objects.get(id=cliente_id)
+    pedidos = PedidoWeb.objects.filter(participante_id=cliente_id)
+
+    context = {
+        'cliente': cliente,
+        'pedidos': pedidos
+    }
+    return render(request, 'faturamento/participante/pedido_por_cliente.html', context)
+
+
+def pedido_novo_por_cliente(request, cliente_id):
+    """
+    Cliente, TabelaPreco, Produto, TabelaPrecoItem
+    """
+    cliente = Participante.objects.get(id=cliente_id)
+    tabelaprecoitem = TabelaPrecoItem.objects.filter(tabelapreco=cliente.tabelapreco)
+    cart_produto_form = CartAddProductForm()
+
+    context = {
+        'cliente': cliente,
+        'tabelaprecoitem': tabelaprecoitem,
+        'cart_produto_form': cart_produto_form
+    }
+
+    return render(request, 'faturamento/participante/pedido_novo_por_cliente.html', context)

@@ -64,6 +64,7 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls'),),
     path('admin/', admin.site.urls),
     url(r'^cart/', include('cart.urls')),
+    url(r'^empresas/', include('empresas.urls')),
     url(r'^faturamento/', include('faturamento.urls')),
     url(r'^financeiro/', include('financeiro.urls')),
     url(r'^accounts/', include('accounts.urls')),
